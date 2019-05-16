@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="434.0" prefWidth="661.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2" fx:controller="sistemaserviciosocial.controlador.FXMLRegistrarAlumnoFormularioController">
+  <children>
+    <Label layoutX="23.0" layoutY="23.0" text="Formato de Registro">
+      <font>
+        <Font size="22.0" fx:id="x2" />
+      </font>
+    </Label>
+    <Label layoutX="23.0" layoutY="75.0" text="Nombre">
+      <font>
+        <Font size="15.0" fx:id="x1" />
+      </font>
+    </Label>
+    <TextField fx:id="nombreTextField" layoutX="23.0" layoutY="95.0" prefWidth="200.0" />
+    <Label font="$x1" layoutX="231.0" layoutY="75.0" text="Apellido paterno" />
+    <TextField fx:id="paternoTextField" layoutX="231.0" layoutY="95.0" prefWidth="200.0" />
+    <Label font="$x1" layoutX="440.0" layoutY="75.0" text="Apellido materno" />
+    <TextField fx:id="maternoTextField" layoutX="440.0" layoutY="95.0" prefWidth="200.0" />
+    <Label font="$x1" layoutX="23.0" layoutY="126.0" text="Teléfono personal" />
+    <TextField fx:id="telefonoTextField" layoutX="23.0" layoutY="146.0" prefWidth="200.0" />
+    <Label font="$x1" layoutX="232.0" layoutY="126.0" text="Correo personal" />
+    <TextField fx:id="correoTextField" layoutX="232.0" layoutY="146.0" prefWidth="408.0" />
+    <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#dfdfdf" height="181.0" layoutX="22.0" layoutY="196.0" stroke="BLACK" strokeType="INSIDE" width="617.0" />
+    <Label font="$x2" layoutX="32.0" layoutY="207.0" text="Datos de contacto" />
+    <Label layoutX="33.0" layoutY="237.0" text="Ingresa los datos de algún contacto (familiar o cercano) tuyo" />
+    <Label font="$x1" layoutX="33.0" layoutY="265.0" text="Nombre completo" />
+    <TextField fx:id="nombreContactoTextField" layoutX="33.0" layoutY="285.0" prefWidth="200.0" />
+    <Label font="$x1" layoutX="254.0" layoutY="265.0" text="Correo" />
+    <TextField fx:id="correoContactoTextField" layoutX="254.0" layoutY="285.0" prefWidth="270.0" />
+    <Label font="$x1" layoutX="33.0" layoutY="316.0" text="Teléfono" />
+    <TextField fx:id="telefonoContactoTextField" layoutX="33.0" layoutY="336.0" prefWidth="200.0" />
+    <Button fx:id="registrarButton" layoutX="480.0" layoutY="393.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="75.0" text="Registrar" />
+    <Button fx:id="cancelarButton" layoutX="564.0" layoutY="393.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="75.0" text="Cancelar" />
+  </children>
+</AnchorPane>

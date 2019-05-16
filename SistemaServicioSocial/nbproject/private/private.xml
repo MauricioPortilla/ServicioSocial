@@ -3,9 +3,19 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/Mauricio%20CP/Desktop/SistemaServicioSocial/SistemaServicioSocial/src/sistemaserviciosocial/FXMLSistemaServicioSocialController.java</file>
-            <file>file:/C:/Users/Mauricio%20CP/Desktop/SistemaServicioSocial/SistemaServicioSocial/src/sistemaserviciosocial/FXMLSistemaServicioSocial.fxml</file>
+            <file>file:/C:/Users/Mauricio%20CP/Desktop/SistemaServicioSocial/SistemaServicioSocial/src/sistemaserviciosocial/interfaz/FXMLModificarDatosAlumno.fxml</file>
+            <file>file:/C:/Users/Mauricio%20CP/Desktop/SistemaServicioSocial/SistemaServicioSocial/src/sistemaserviciosocial/controlador/FXMLRegistrarUnidadReceptoraController.java</file>
+            <file>file:/C:/Users/Mauricio%20CP/Desktop/SistemaServicioSocial/SistemaServicioSocial/src/sistemaserviciosocial/interfaz/FXMLRegistrarAlumnoValidacion.fxml</file>
+            <file>file:/C:/Users/Mauricio%20CP/Desktop/SistemaServicioSocial/SistemaServicioSocial/src/sistemaserviciosocial/interfaz/FXMLRegistrarUnidadReceptora.fxml</file>
+            <file>file:/C:/Users/Mauricio%20CP/Desktop/SistemaServicioSocial/SistemaServicioSocial/src/sistemaserviciosocial/controlador/FXMLModificarDatosAlumnoController.java</file>
             <file>file:/C:/Users/Mauricio%20CP/Desktop/SistemaServicioSocial/SistemaServicioSocial/src/sistemaserviciosocial/SistemaServicioSocial.java</file>
+            <file>file:/C:/Users/Mauricio%20CP/Desktop/SistemaServicioSocial/SistemaServicioSocial/src/sistemaserviciosocial/interfaz/FXMLRegistrarAlumnoFormulario.fxml</file>
+            <file>file:/C:/Users/Mauricio%20CP/Desktop/SistemaServicioSocial/SistemaServicioSocial/src/sistemaserviciosocial/interfaz/FXMLIniciarSesion.fxml</file>
+            <file>file:/C:/Users/Mauricio%20CP/Desktop/SistemaServicioSocial/SistemaServicioSocial/src/sistemaserviciosocial/controlador/FXMLRegistrarAlumnoValidacionController.java</file>
+            <file>file:/C:/Users/Mauricio%20CP/Desktop/SistemaServicioSocial/SistemaServicioSocial/src/sistemaserviciosocial/controlador/FXMLSistemaServicioSocialController.java</file>
+            <file>file:/C:/Users/Mauricio%20CP/Desktop/SistemaServicioSocial/SistemaServicioSocial/src/sistemaserviciosocial/controlador/FXMLRegistrarAlumnoFormularioController.java</file>
+            <file>file:/C:/Users/Mauricio%20CP/Desktop/SistemaServicioSocial/SistemaServicioSocial/src/sistemaserviciosocial/interfaz/FXMLSistemaServicioSocial.fxml</file>
+            <file>file:/C:/Users/Mauricio%20CP/Desktop/SistemaServicioSocial/SistemaServicioSocial/src/sistemaserviciosocial/controlador/FXMLIniciarSesionController.java</file>
         </group>
     </open-files>
 </project-private>
