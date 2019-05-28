@@ -1,7 +1,11 @@
 package sistemaserviciosocial.controlador;
 
 import java.net.URL;
+import java.time.LocalDate;
 import java.util.ResourceBundle;
+
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -14,6 +18,8 @@ import sistemaserviciosocial.IAlumnoDAO;
 import sistemaserviciosocial.ISolicitudDAO;
 import sistemaserviciosocial.Solicitud;
 import sistemaserviciosocial.SolicitudDAO;
+import sistemaserviciosocial.engine.SQL;
+import sistemaserviciosocial.engine.SQLRow;
 
 public class FXMLAsignarServicioSocialController {
 
@@ -77,8 +83,6 @@ public class FXMLAsignarServicioSocialController {
 		lugarTableColumn.setCellValueFactory(new PropertyValueFactory<>("lugar"));
 		requisitosTableColumn.setCellValueFactory(new PropertyValueFactory<>("requisitos"));
 
-		solicitudesTableView.setItems(solicitudDAO.getSolicitudes());
-
 		matriculaTableColumn.setCellValueFactory(new PropertyValueFactory<>("matricula"));
 		nombreTableColumn.setCellValueFactory(new PropertyValueFactory<>("nombre"));
 		paternoTableColumn.setCellValueFactory(new PropertyValueFactory<>("paterno"));
@@ -86,6 +90,7 @@ public class FXMLAsignarServicioSocialController {
 
 		alumnosTableView.setItems(alumnoDAO.getAlumnos(true));
 		solicitudesTableView.setItems(solicitudDAO.getSolicitudes());
+		
 	}
 
 }

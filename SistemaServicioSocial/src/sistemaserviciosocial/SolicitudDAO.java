@@ -5,7 +5,7 @@
  */
 package sistemaserviciosocial;
 
-import java.time.LocalDate;
+import java.sql.Date;
 
 import sistemaserviciosocial.engine.SQL;
 import sistemaserviciosocial.engine.SQLRow;
@@ -32,7 +32,7 @@ public class SolicitudDAO implements ISolicitudDAO {
                         row.getColumnData("horario").toString(), 
                         row.getColumnData("responsableUnidad").toString(), 
                         row.getColumnData("requisitos").toString(), 
-                        (LocalDate) row.getColumnData("fechaRegistro")
+                        ((Date) row.getColumnData("fechaRegistro")).toLocalDate()
                     )
                 );
             }
