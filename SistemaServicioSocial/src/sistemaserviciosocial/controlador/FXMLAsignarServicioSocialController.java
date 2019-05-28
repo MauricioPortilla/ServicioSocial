@@ -85,6 +85,7 @@ public class FXMLAsignarServicioSocialController {
 		maternoTableColumn.setCellValueFactory(new PropertyValueFactory<>("materno"));
 
 		alumnosTableView.setItems(alumnoDAO.getAlumnos(true));
+		solicitudesTableView.setItems(solicitudDAO.getSolicitudes());
 	}
 
 }

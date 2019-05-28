@@ -1,35 +1,45 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package sistemaserviciosocial.controlador;
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.Initializable;
-import javafx.scene.control.Label;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Scene;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Button;
+import javafx.scene.control.Alert.AlertType;
+import javafx.scene.layout.AnchorPane;
+import javafx.stage.Stage;
 
-/**
- *
- * @author Mauricio CP
- */
-public class FXMLSistemaServicioSocialController implements Initializable {
-	
+public class FXMLSistemaServicioSocialController {
+
 	@FXML
-	private Label label;
-	
+	private ResourceBundle resources;
+
 	@FXML
-	private void handleButtonAction(ActionEvent event) {
-		System.out.println("You clicked me!");
-		label.setText("Hello World!");
+	private URL location;
+
+	@FXML
+	private Button iniciarSesionButton;
+
+	@FXML
+	private Button registrarseButton;
+
+	@FXML
+	void initialize() {
+		try {
+			FXMLLoader loader = new FXMLLoader(
+					getClass().getResource("/sistemaserviciosocial/interfaz/FXMLAsignarServicioSocial.fxml"));
+			Stage stage = new Stage();
+			stage.setScene(new Scene((AnchorPane) loader.load()));
+			stage.setTitle("Asignar servicio social");
+			stage.show();
+		} catch (IOException e) {
+			new Alert(AlertType.ERROR, "Ocurrió un error al abrir la ventana.").show();
+			System.out.println(e.getMessage());
+			System.out.println(e.getCause());
+		}
 	}
-	
-	@Override
-	public void initialize(URL url, ResourceBundle rb) {
-		// TODO
-	}	
-	
+
 }

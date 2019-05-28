@@ -7,8 +7,8 @@ package sistemaserviciosocial;
 
 import java.time.LocalDate;
 
-import engine.SQL;
-import engine.SQLRow;
+import sistemaserviciosocial.engine.SQL;
+import sistemaserviciosocial.engine.SQLRow;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 

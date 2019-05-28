@@ -19,7 +19,7 @@ public class SistemaServicioSocial extends Application {
 	
 	@Override
 	public void start(Stage stage) throws Exception {
-		Parent root = FXMLLoader.load(getClass().getResource("FXMLSistemaServicioSocial.fxml"));
+		Parent root = FXMLLoader.load(getClass().getResource("interfaz/FXMLSistemaServicioSocial.fxml"));
 		
 		Scene scene = new Scene(root);
 		

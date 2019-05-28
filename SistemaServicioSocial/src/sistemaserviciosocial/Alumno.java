@@ -23,13 +23,14 @@ public class Alumno {
     private String estado;
 
 	public Alumno(
-		String matricula, String nombre, String paterno, String telefono, 
+		String matricula, String nombre, String paterno, String materno, String telefono, 
 		String correoPersonal, String nombreContacto, String correoContacto, 
 		String telefonoContacto, float promedio, String estado
 	) {
 		this.matricula = matricula;
 		this.nombre = nombre;
 		this.paterno = paterno;
+		this.materno = materno;
 		this.telefono = telefono;
 		this.correoPersonal = correoPersonal;
 		this.nombreContacto = nombreContacto;
