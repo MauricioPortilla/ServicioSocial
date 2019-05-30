@@ -17,12 +17,12 @@ import javafx.collections.ObservableList;
 public class AlumnoDAO implements IAlumnoDAO {
 
 	@Override
-	public ObservableList<Alumno> getAlumnos(boolean periodoActual) {
+	public ObservableList<Alumno> getAlumnos(boolean periodoActual) { // SIN IMPLEMENTAR EL PARAMETRO
         ObservableList<Alumno> alumnos = FXCollections.observableArrayList();
-        SQL.executeQuery(
-            "SELECT * FROM alumno WHERE idServicioSocial IN (" +
-                "SELECT * FROM servicioSocial ORDER BY idServicioSocial DESC LIMIT 1" +
-            ")", null, (result) -> {
+        SQL.executeQuery( // CONSIDERAR LIMIT 1 EN SUBQUERY PORQUE QUEREMOS EL ULTIMO SS CREADO
+            "SELECT * FROM alumno a, inscripcion i WHERE i.idserviciosocial IN (" +
+                "SELECT idserviciosocial FROM servicioSocial ORDER BY idServicioSocial DESC" +
+            ") AND a.matricula = i.matriculaAlumno", null, (result) -> {
 				for (SQLRow row : result) {
 					alumnos.add(
 						new Alumno(

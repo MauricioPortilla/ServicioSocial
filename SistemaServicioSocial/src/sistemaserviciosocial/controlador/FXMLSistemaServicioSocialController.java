@@ -3,6 +3,9 @@ package sistemaserviciosocial.controlador;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
+
+import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
@@ -28,18 +31,27 @@ public class FXMLSistemaServicioSocialController {
 
 	@FXML
 	void initialize() {
-		try {
-			FXMLLoader loader = new FXMLLoader(
-					getClass().getResource("/sistemaserviciosocial/interfaz/FXMLAsignarServicioSocial.fxml"));
-			Stage stage = new Stage();
-			stage.setScene(new Scene((AnchorPane) loader.load()));
-			stage.setTitle("Asignar servicio social");
-			stage.show();
-		} catch (IOException e) {
-			new Alert(AlertType.ERROR, "Ocurrió un error al abrir la ventana.").show();
-			System.out.println(e.getMessage());
-			System.out.println(e.getCause());
-		}
+		iniciarSesionButton.setOnAction(iniciarSesionButtonHandler());
+	}
+
+	private EventHandler<ActionEvent> iniciarSesionButtonHandler() {
+		return new EventHandler<ActionEvent>() {
+			@Override
+			public void handle(ActionEvent event) {
+				try {
+					FXMLLoader loader = new FXMLLoader(
+							getClass().getResource("/sistemaserviciosocial/interfaz/FXMLAsignarServicioSocial.fxml"));
+					Stage stage = new Stage();
+					stage.setScene(new Scene((AnchorPane) loader.load()));
+					stage.setTitle("Asignar servicio social");
+					stage.show();
+				} catch (IOException e) {
+					new Alert(AlertType.ERROR, "Ocurrió un error al abrir la ventana.").show();
+					System.out.println(e.getMessage());
+					System.out.println(e.getCause());
+				}
+			}
+		};
 	}
 
 }
