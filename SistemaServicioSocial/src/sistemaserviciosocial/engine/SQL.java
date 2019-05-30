@@ -8,7 +8,7 @@
  * Mayo, 2019
  */
 
-package engine;
+package sistemaserviciosocial.engine;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.function.BooleanSupplier;

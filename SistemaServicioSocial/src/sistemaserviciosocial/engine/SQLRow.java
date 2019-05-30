@@ -8,7 +8,7 @@
  * Mayo, 2019
  */
 
-package engine;
+package sistemaserviciosocial.engine;
 import java.util.ArrayList;
 
 /**

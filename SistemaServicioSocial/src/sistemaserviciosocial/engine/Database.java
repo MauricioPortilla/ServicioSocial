@@ -1,14 +1,15 @@
 /**
- * Sistema de Gimnasio
+ * Sistema de Servicio Social
  * Elaborado por (en orden alfabetico):
  *  Cruz Portilla Mauricio
  *  Gonzalez Hernandez Maria Saarayim
  *  Hernandez Molinos Maria Jose
+ *  Lopez Lujan Bruno Antonio
  * 
  * Mayo, 2019
  */
 
-package engine;
+package sistemaserviciosocial.engine;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
@@ -31,8 +32,8 @@ public class Database {
         try {
             Class.forName("com.mysql.jdbc.Driver").newInstance();
             System.out.println("Connecting...");
-            String url = "jdbc:mysql://localhost:3306/gimnasiodb";
-            connection = DriverManager.getConnection(url, "gimnasiouser", "tm3");
+            String url = "jdbc:mysql://localhost:3306/serviciosocialdb";
+            connection = DriverManager.getConnection(url, "ss_user", "tm4");
             System.out.println("Connected.");
         } catch(SQLException sqlException){
             System.out.println("Connection error -> " + sqlException.getMessage());

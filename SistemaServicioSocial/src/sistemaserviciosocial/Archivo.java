@@ -13,6 +13,7 @@ public class Archivo {
   private String rutaUbicacion;
   private String estado;
   private String motivoInvalidez = null;
+  private int idHistorial;
   
   
   /**
@@ -22,16 +23,25 @@ public class Archivo {
    * @param estado estado del archivo
    * @param motivoInvalidez motivo por el que se invalida un archivo 
    */
-  public Archivo(int id, String titulo, String rutaUbicacion, String estado, String motivoInvalidez){
+  public Archivo(int id, int idHistorial, String titulo, String rutaUbicacion, String estado, String motivoInvalidez){
     this.titulo=titulo;
     this.rutaUbicacion=rutaUbicacion;
     this.estado=estado;
     this.motivoInvalidez=motivoInvalidez;
     this.id=id;
+    this.idHistorial=idHistorial;
   }
 
   public void setId(int id) {
     this.id = id;
+  }
+
+  public int getIdHistorial() {
+    return idHistorial;
+  }
+
+  public void setIdHistorial(int idHistorial) {
+    this.idHistorial = idHistorial;
   }
 
   public int getId() {

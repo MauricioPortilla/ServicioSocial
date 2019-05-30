@@ -8,7 +8,7 @@
  * Mayo, 2019
  */
 
-package engine;
+package sistemaserviciosocial.engine;
 
 /**
  * SQLColumn es la clase que simula ser una columna de una
