@@ -1,105 +1,119 @@
 /**
- *Clase Proyecto
- *@author Bruno Antonio López Luján
- *@version 1.0
- *@since 2019/05/30
+ * Sistema de Servicio Social
+ * Descripción: Sistema para el control de alumnos que cursan o cursaron la experiencia educativa
+ * 				de Servicio Social.
+ * Autores: (en orden alfabético)
+ * 			Cruz Portilla Mauricio
+ * 			González Hernández María Saarayim
+ * 			Hernández Molinos María José
+ * 			López Lujan Bruno Antonio
+ * Fecha de creación: Mayo, 2019
  */
 package sistemaserviciosocial;
+
+/**
+ * Clase Proyecto
+ *
+ * @author Bruno Antonio López Luján
+ * @version 1.0
+ * @since 2019/05/30
+ */
 import java.time.LocalDate;
 
 public class Proyecto {
-  private String nombre;
-  private String descripcion;
-  private String horarioAlumno;
-  private int numAlumnos;
-  private String actividades;
-  private LocalDate fechaRegistro;
-  private int idProyecto;
-  private int idSolicitud;
-  private int idResponsable;
 
- public Proyecto(int idProyecto, int idSolicitud, int idResponsable, String nombre, String descripcion, String horarioAlumno, int numAlumnos, String actividades, LocalDate fechaRegistro){
-   this.idProyecto = idProyecto;
-   this.idSolicitud = idSolicitud;
-   this.idResponsable = idResponsable;
-   this.nombre = nombre;
-   this.descripcion = descripcion;
-   this.horarioAlumno = horarioAlumno;
-   this.numAlumnos = numAlumnos;
-   this.actividades = actividades;
-   this.fechaRegistro = fechaRegistro;
- } 
+    private String nombre;
+    private String descripcion;
+    private String horarioAlumno;
+    private int numAlumnos;
+    private String actividades;
+    private LocalDate fechaRegistro;
+    private int idProyecto;
+    private int idSolicitud;
+    private int idResponsable;
 
-  public String getNombre() {
-    return nombre;
-  }
+    public Proyecto(int idProyecto, int idSolicitud, int idResponsable, String nombre, String descripcion, String horarioAlumno, int numAlumnos, String actividades, LocalDate fechaRegistro) {
+        this.idProyecto = idProyecto;
+        this.idSolicitud = idSolicitud;
+        this.idResponsable = idResponsable;
+        this.nombre = nombre;
+        this.descripcion = descripcion;
+        this.horarioAlumno = horarioAlumno;
+        this.numAlumnos = numAlumnos;
+        this.actividades = actividades;
+        this.fechaRegistro = fechaRegistro;
+    }
 
-  public String getDescripcion() {
-    return descripcion;
-  }
+    public String getNombre() {
+        return nombre;
+    }
 
-  public String getHorarioAlumno() {
-    return horarioAlumno;
-  }
+    public String getDescripcion() {
+        return descripcion;
+    }
 
-  public int getNumAlumnos() {
-    return numAlumnos;
-  }
+    public String getHorarioAlumno() {
+        return horarioAlumno;
+    }
 
-  public String getActividades() {
-    return actividades;
-  }
+    public int getNumAlumnos() {
+        return numAlumnos;
+    }
 
-  public LocalDate getFechaRegistro() {
-    return fechaRegistro;
-  }
+    public String getActividades() {
+        return actividades;
+    }
 
-  public int getIdProyecto() {
-    return idProyecto;
-  }
+    public LocalDate getFechaRegistro() {
+        return fechaRegistro;
+    }
 
-  public int getIdSolicitud() {
-    return idSolicitud;
-  }
+    public int getIdProyecto() {
+        return idProyecto;
+    }
 
-  public int getIdResponsable() {
-    return idResponsable;
-  }
+    public int getIdSolicitud() {
+        return idSolicitud;
+    }
 
-  public void setNombre(String nombre) {
-    this.nombre = nombre;
-  }
+    public int getIdResponsable() {
+        return idResponsable;
+    }
 
-  public void setDescripcion(String descripcion) {
-    this.descripcion = descripcion;
-  }
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
 
-  public void setHorarioAlumno(String horarioAlumno) {
-    this.horarioAlumno = horarioAlumno;
-  }
+    public void setDescripcion(String descripcion) {
+        this.descripcion = descripcion;
+    }
 
-  public void setNumAlumnos(int numAlumnos) {
-    this.numAlumnos = numAlumnos;
-  }
+    public void setHorarioAlumno(String horarioAlumno) {
+        this.horarioAlumno = horarioAlumno;
+    }
 
-  public void setActividades(String actividades) {
-    this.actividades = actividades;
-  }
+    public void setNumAlumnos(int numAlumnos) {
+        this.numAlumnos = numAlumnos;
+    }
 
-  public void setFechaRegistro(LocalDate fechaRegistro) {
-    this.fechaRegistro = fechaRegistro;
-  }
+    public void setActividades(String actividades) {
+        this.actividades = actividades;
+    }
 
-  public void setIdProyecto(int idProyecto) {
-    this.idProyecto = idProyecto;
-  }
+    public void setFechaRegistro(LocalDate fechaRegistro) {
+        this.fechaRegistro = fechaRegistro;
+    }
 
-  public void setIdSolicitud(int idSolicitud) {
-    this.idSolicitud = idSolicitud;
-  }
+    public void setIdProyecto(int idProyecto) {
+        this.idProyecto = idProyecto;
+    }
 
-  public void setIdResponsable(int idResponsable) {
-    this.idResponsable = idResponsable;
-  }
+    public void setIdSolicitud(int idSolicitud) {
+        this.idSolicitud = idSolicitud;
+    }
+
+    public void setIdResponsable(int idResponsable) {
+        this.idResponsable = idResponsable;
+    }
 
 }

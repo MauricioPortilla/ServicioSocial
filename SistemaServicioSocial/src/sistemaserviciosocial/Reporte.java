@@ -1,15 +1,27 @@
-/** 
+/**
+ * Sistema de Servicio Social
+ * Descripción: Sistema para el control de alumnos que cursan o cursaron la experiencia educativa
+ * 				de Servicio Social.
+ * Autores: (en orden alfabético)
+ * 			Cruz Portilla Mauricio
+ * 			González Hernández María Saarayim
+ * 			Hernández Molinos María José
+ * 			López Lujan Bruno Antonio
+ * Fecha de creación: Mayo, 2019
+ */
+package sistemaserviciosocial;
+
+/**
  * Reporte es la clase que contiene la información de un reporte de Servicio Social.
+ *
  * @author Maria Jose Hernandez Molinos
  * @version 1.0
  * @since 2019/05/28
  */
-
-package sistemaserviciosocial;
 import java.time.LocalDate;
 
-
 public class Reporte {
+
     private int id;
     private int numero;
     private int horasReportadas;
@@ -19,9 +31,9 @@ public class Reporte {
     private String motivoInvalidez = null;
     private int idHistorial;
     private int idEntrega;
-    
+
     /**
-     * 
+     *
      * @param numero numero de reporte
      * @param horasReportadas numero de horas reportadas
      * @param mes mes de reporte
@@ -29,24 +41,23 @@ public class Reporte {
      * @param estado estado en el que se enuentra el reporte
      * @param motivoInvalidez motivo de invalidez del reporte
      */
-    
-    public Reporte(int id,int numero, int horasReportadas, String mes, LocalDate fechaEntrega, String estado, String motivoInvalidez,int idHistorial, int idEntrega){
-        this.id=id;
+    public Reporte(int id, int numero, int horasReportadas, String mes, LocalDate fechaEntrega, String estado, String motivoInvalidez, int idHistorial, int idEntrega) {
+        this.id = id;
         this.numero = numero;
         this.horasReportadas = horasReportadas;
         this.mes = mes;
         this.fechaEntrega = fechaEntrega;
         this.estado = estado;
         this.motivoInvalidez = motivoInvalidez;
-        this.idHistorial= idHistorial;
+        this.idHistorial = idHistorial;
         this.idEntrega = idEntrega;
-       
+
     }
 
     public int getId() {
         return id;
     }
-    
+
     public int getNumero() {
         return numero;
     }
@@ -78,12 +89,10 @@ public class Reporte {
     public int getIdEntrega() {
         return idEntrega;
     }
-    
 
     public void setId(int id) {
         this.id = id;
     }
-    
 
     public void setNumero(int numero) {
         this.numero = numero;
@@ -116,7 +125,5 @@ public class Reporte {
     public void setIdEntrega(int idEntrega) {
         this.idEntrega = idEntrega;
     }
-    
-    
-    
+
 }

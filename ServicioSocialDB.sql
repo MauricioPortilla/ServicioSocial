@@ -130,3 +130,10 @@ CREATE TABLE proyectoAsignado (
     idproyecto int NOT NULL,
     FOREIGN KEY (idproyecto) REFERENCES proyecto(idproyecto)
 );
+
+CREATE TABLE solicitudSeleccionada (
+    idhistorial int NOT NULL,
+    FOREIGN KEY (idhistorial) REFERENCES historialAlumnoSS(idhistorial),
+    idsolicitud int NOT NULL,
+    FOREIGN KEY (idsolicitud) REFERENCES solicitud(idsolicitud)
+);

@@ -1,29 +1,39 @@
 /**
- *Clase Proyecto
- *@author Bruno Antonio López Luján
- *@version 1.0
- *@since 2019/05/30
+ * Sistema de Servicio Social
+ * Descripción: Sistema para el control de alumnos que cursan o cursaron la experiencia educativa
+ * 				de Servicio Social.
+ * Autores: (en orden alfabético)
+ * 			Cruz Portilla Mauricio
+ * 			González Hernández María Saarayim
+ * 			Hernández Molinos María José
+ * 			López Lujan Bruno Antonio
+ * Fecha de creación: Mayo, 2019
  */
 package sistemaserviciosocial;
 
+/**
+ * Clase Proyecto
+ *
+ * @author Bruno Antonio López Luján
+ * @version 1.0
+ * @since 2019/05/30
+ */
 import java.util.ArrayList;
 import sistemaserviciosocial.engine.SQL;
 
-public class ProyectoDAO implements IProyectoDAO{
+public class ProyectoDAO implements IProyectoDAO {
 
+    public ProyectoDAO() {
+    }
 
-public ProyectoDAO(){
-}
+    @Override
+    public Proyecto getProyecto(int idProyecto) {
+        throw new UnsupportedOperationException("Not supported yet.");
+    }
 
-@Override
-  public Proyecto getProyecto(int idProyecto) {
-    throw new UnsupportedOperationException("Not supported yet.");
-   } 
- 
-
-  @Override
-  public boolean insertProyeto(Proyecto proyecto) {
-          if (SQL.executeUpdate(
+    @Override
+    public boolean insertProyecto(Proyecto proyecto) {
+        if (SQL.executeUpdate(
             "INSERT INTO proyecto VALUES (NULL, ?, ?, ?, ?, ?, ?, ?, ?)",
             new ArrayList<Object>() {
                 {
@@ -41,26 +51,26 @@ public ProyectoDAO(){
             return true;
         }
         return false;
-  }
+    }
 
-  @Override
-  public boolean updateProyeto(Proyecto proyecto) {
+    @Override
+    public boolean updateProyecto(Proyecto proyecto) {
         if (SQL.executeUpdate(
-            "UPDATE proyecto SET nombre = ?, descripcion = ?, horarioAlumno = ?, numAlumnos = ?, " + 
-            "acticidades = ?, fechaResgistro = ? WHERE idProyecto = ?",
+            "UPDATE proyecto SET nombre = ?, descripcion = ?, horarioAlumno = ?, numAlumnos = ?, "
+            + "acticidades = ?, fechaResgistro = ? WHERE idProyecto = ?",
             new ArrayList<Object>() {
-                {
-                    add(proyecto.getNombre());
-                    add(proyecto.getDescripcion());
-                    add(proyecto.getHorarioAlumno());
-                    add(proyecto.getNumAlumnos());
-                    add(proyecto.getActividades());
-                    add(proyecto.getFechaRegistro());
-                }
+            {
+                add(proyecto.getNombre());
+                add(proyecto.getDescripcion());
+                add(proyecto.getHorarioAlumno());
+                add(proyecto.getNumAlumnos());
+                add(proyecto.getActividades());
+                add(proyecto.getFechaRegistro());
             }
+        }
         ) == 1) { // 1 indica que hay 1 fila afectada
             return true;
         }
         return false;
-  }
+    }
 }

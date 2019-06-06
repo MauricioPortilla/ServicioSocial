@@ -1,3 +1,14 @@
+/**
+ * Sistema de Servicio Social
+ * Descripción: Sistema para el control de alumnos que cursan o cursaron la experiencia educativa
+ * 				de Servicio Social.
+ * Autores: (en orden alfabético)
+ * 			Cruz Portilla Mauricio
+ * 			González Hernández María Saarayim
+ * 			Hernández Molinos María José
+ * 			López Lujan Bruno Antonio
+ * Fecha de creación: Mayo, 2019
+ */
 package sistemaserviciosocial.controlador;
 
 import java.io.IOException;
@@ -15,6 +26,14 @@ import javafx.scene.control.Alert.AlertType;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 
+/**
+ * FXMLSistemaServicioSocialController es la clase que lleva el control de la interfaz
+ * FXMLSistemaServicioSocial, la cual muestra la ventana principal del programa.
+ * 
+ * @author Mauricio Cruz Portilla
+ * @version 1.0
+ * @since 2019/05/14
+ */
 public class FXMLSistemaServicioSocialController {
 
 	@FXML
@@ -34,6 +53,11 @@ public class FXMLSistemaServicioSocialController {
 		iniciarSesionButton.setOnAction(iniciarSesionButtonHandler());
 	}
 
+	/**
+	 * Maneja el botón de Iniciar Sesión.
+	 * 
+	 * @return el evento del botón
+	 */
 	private EventHandler<ActionEvent> iniciarSesionButtonHandler() {
 		return new EventHandler<ActionEvent>() {
 			@Override

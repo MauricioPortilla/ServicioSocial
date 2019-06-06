@@ -9,25 +9,20 @@
  * 			López Lujan Bruno Antonio
  * Fecha de creación: Mayo, 2019
  */
-package sistemaserviciosocial.controlador;
-
-import java.net.URL;
-import java.util.ResourceBundle;
-import javafx.fxml.Initializable;
+package sistemaserviciosocial;
 
 /**
- * FXML Controller class
- *
- * @author Mauricio CP
+ * UtilitiesFilters es el enumerador de la clase Utilities para los filtros
+ * en las listas.
+ * 
+ * @author Mauricio Cruz Portilla
+ * @version 1.0
+ * @since 2019/06/06
  */
-public class FXMLRegistrarSolicitudController implements Initializable {
-
-	/**
-	 * Initializes the controller class.
-	 */
-	@Override
-	public void initialize(URL url, ResourceBundle rb) {
-		// TODO
-	}	
-	
+public enum UtilitiesFilters {
+    
+    /**
+     * Filtra alumnos que no posean una solicitud asignada en su historial.
+     */
+    FILTER_ALUMNOS_BY_NO_SOLICITUD_ASIGNADA
 }

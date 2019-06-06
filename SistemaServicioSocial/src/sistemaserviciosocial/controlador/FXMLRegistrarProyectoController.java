@@ -1,7 +1,13 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+/**
+ * Sistema de Servicio Social
+ * Descripción: Sistema para el control de alumnos que cursan o cursaron la experiencia educativa
+ * 				de Servicio Social.
+ * Autores: (en orden alfabético)
+ * 			Cruz Portilla Mauricio
+ * 			González Hernández María Saarayim
+ * 			Hernández Molinos María José
+ * 			López Lujan Bruno Antonio
+ * Fecha de creación: Mayo, 2019
  */
 package sistemaserviciosocial.controlador;
 

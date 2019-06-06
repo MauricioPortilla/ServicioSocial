@@ -11,23 +11,21 @@
  */
 package sistemaserviciosocial;
 
-import javafx.collections.ObservableList;
-
 /**
- * IAlumnoDAO es la interfaz que maneja la información de los Alumno en la
- * base de datos.
+ * IInscripcionDAO es la interfaz que maneja la información de las Inscripcion
+ * en la base de datos.
  * 
  * @author Mauricio Cruz Portilla
  * @version 1.0
  * @since 2019/06/06
  */
-public interface IAlumnoDAO {
+public interface IInscripcionDAO {
+    
     /**
-     * Retorna los alumnos registrados en el sistema que posean una inscripción en el servicio
-     * social indicado.
+     * Retorna una inscripción de la base de datos con base en un Alumno.
      * 
-     * @param idServicioSocial identificador del servicio social
-     * @return lista de alumnos
+     * @param alumno alumno de la inscripción
+     * @return inscripción del alumno
      */
-	ObservableList<Alumno> getAlumnos(int idServicioSocial);
+    public Inscripcion getInscripcion(Alumno alumno);
 }

@@ -1,31 +1,48 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+/**
+ * Sistema de Servicio Social
+ * Descripción: Sistema para el control de alumnos que cursan o cursaron la experiencia educativa
+ * 				de Servicio Social.
+ * Autores: (en orden alfabético)
+ * 			Cruz Portilla Mauricio
+ * 			González Hernández María Saarayim
+ * 			Hernández Molinos María José
+ * 			López Lujan Bruno Antonio
+ * Fecha de creación: Mayo, 2019
  */
 package sistemaserviciosocial;
 
 import sistemaserviciosocial.engine.SQL;
 import sistemaserviciosocial.engine.SQLRow;
+
+import java.util.ArrayList;
+
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
 
 /**
- *
- * @author Mauricio CP
+ * AlumnoDAO es la clase que maneja la información de los Alumnos en la base de datos.
+ * 
+ * @author Mauricio Cruz Portilla
+ * @version 1.0
+ * @since 2019/05/24
  */
 public class AlumnoDAO implements IAlumnoDAO {
 
 	@Override
-	public ObservableList<Alumno> getAlumnos(boolean periodoActual) { // SIN IMPLEMENTAR EL PARAMETRO
+	public ObservableList<Alumno> getAlumnos(int idServicioSocial) {
         ObservableList<Alumno> alumnos = FXCollections.observableArrayList();
-        SQL.executeQuery( // CONSIDERAR LIMIT 1 EN SUBQUERY PORQUE QUEREMOS EL ULTIMO SS CREADO
-            "SELECT * FROM alumno a, inscripcion i WHERE i.idserviciosocial IN (" +
-                "SELECT idserviciosocial FROM servicioSocial ORDER BY idServicioSocial DESC" +
-            ") AND a.matricula = i.matriculaAlumno", null, (result) -> {
-				for (SQLRow row : result) {
-					alumnos.add(
-						new Alumno(
+        try {
+			SQL.executeQuery(
+				"SELECT * FROM alumno a, inscripcion i WHERE i.idserviciosocial = ? AND " + 
+				"a.matricula = i.matriculaAlumno", new ArrayList<Object>() {
+					{
+						add(idServicioSocial);
+					}
+				}, (result) -> {
+					for (SQLRow row : result) {
+						alumnos.add(new Alumno(
 							row.getColumnData("matricula").toString(),
 							row.getColumnData("nombre").toString(),
 							row.getColumnData("paterno").toString(),
@@ -37,30 +54,18 @@ public class AlumnoDAO implements IAlumnoDAO {
 							row.getColumnData("telefonoContacto").toString(),
 							(float) row.getColumnData("promedio"),
 							row.getColumnData("estado").toString()
-						)
-					);
-				}
-                return true;
-            }, () -> {
-                return false;
-            }
-        );
+						));
+					}
+			        return true;
+			    }, () -> {
+			        return false;
+			    }
+			);
+		} catch (Exception e) {
+			System.out.println("getAlumnos Exception -> " + e.getMessage());
+			new Alert(AlertType.ERROR, "Ocurrió un error al cargar los alumnos").showAndWait();
+		}
         return alumnos;
-	}
-
-	@Override
-	public boolean insertAlumno(Alumno alumno) {
-		throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-	}
-
-	@Override
-	public boolean updateAlumno(Alumno alumno) {
-		throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-	}
-
-	@Override
-	public boolean deleteAlumno(Alumno alumno) {
-		throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
 	}
 	
 }

@@ -1,13 +1,14 @@
 /**
- * Sistema de Gimnasio
- * Elaborado por (en orden alfabetico):
- *  Cruz Portilla Mauricio
- *  Gonzalez Hernandez Maria Saarayim
- *  Hernandez Molinos Maria Jose
- * 
- * Mayo, 2019
+ * Sistema de Servicio Social
+ * Descripción: Sistema para el control de alumnos que cursan o cursaron la experiencia educativa
+ * 				de Servicio Social.
+ * Autores: (en orden alfabético)
+ * 			Cruz Portilla Mauricio
+ * 			González Hernández María Saarayim
+ * 			Hernández Molinos María José
+ * 			López Lujan Bruno Antonio
+ * Fecha de creación: Mayo, 2019
  */
-
 package sistemaserviciosocial.engine;
 
 /**

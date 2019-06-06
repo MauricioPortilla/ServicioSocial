@@ -1,0 +1,15 @@
+﻿<#if licenseFirst??>
+${licenseFirst}
+</#if>
+${licensePrefix}Sistema de Servicio Social
+${licensePrefix}Descripción: Sistema para el control de alumnos que cursan o cursaron la experiencia educativa
+${licensePrefix}				de Servicio Social.
+${licensePrefix}Autores: (en orden alfabético)
+${licensePrefix}			Cruz Portilla Mauricio
+${licensePrefix}			González Hernández María Saarayim
+${licensePrefix}			Hernández Molinos María José
+${licensePrefix}			López Lujan Bruno Antonio
+${licensePrefix}Fecha de creación: Mayo, 2019
+<#if licenseLast??>
+${licenseLast}
+</#if>

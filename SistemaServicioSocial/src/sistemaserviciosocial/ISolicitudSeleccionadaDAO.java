@@ -11,23 +11,24 @@
  */
 package sistemaserviciosocial;
 
-import javafx.collections.ObservableList;
+import java.util.ArrayList;
 
 /**
- * IAlumnoDAO es la interfaz que maneja la información de los Alumno en la
- * base de datos.
+ * ISolicitudSeleccionadaDAO es la interfaz que maneja la información de las
+ * Solicitud seleccionadas de un historial en la base de datos.
  * 
  * @author Mauricio Cruz Portilla
  * @version 1.0
  * @since 2019/06/06
  */
-public interface IAlumnoDAO {
+public interface ISolicitudSeleccionadaDAO {
+
     /**
-     * Retorna los alumnos registrados en el sistema que posean una inscripción en el servicio
-     * social indicado.
+     * Retorna una lista de todas las solicitudes seleccionadas pertenecientes al
+     * historial ingresado.
      * 
-     * @param idServicioSocial identificador del servicio social
-     * @return lista de alumnos
+     * @param historial historial del alumno
+     * @return lista de solicitudes seleccionadas
      */
-	ObservableList<Alumno> getAlumnos(int idServicioSocial);
+    public ArrayList<Solicitud> getSolicitudesSeleccionadas(HistorialAlumnoSS historial);
 }
