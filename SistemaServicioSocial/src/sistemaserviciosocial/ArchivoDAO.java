@@ -37,15 +37,13 @@ public class ArchivoDAO implements IArchivoDAO {
             "INSERT INTO archivo VALUES (NULL, ?, ?, ?, ?, ?)",
             new ArrayList<Object>() {
             {
-                add(archivo.getIdHistorial());
+                add(archivo.getHistorial().getId());
                 add(archivo.getTitulo());
                 add(archivo.getRutaUbicacion());
                 add(archivo.getEstado());
                 add(archivo.getMotivoInvalidez());
-
             }
-        }
-        ) == 1) { // 1 indica que hay 1 fila afectada
+        }) == 1) { // 1 indica que hay 1 fila afectada
             return true;
         }
         return false;
@@ -54,18 +52,18 @@ public class ArchivoDAO implements IArchivoDAO {
     @Override
     public boolean updateArchivo(Archivo archivo) {
         if (SQL.executeUpdate(
-            "UPDATE archivo SET titulo = ?, rutaUbicacion = ?,estado= ?, motivoInvalidez = ? WHERE idArchivo = ?",
+            "UPDATE archivo SET titulo = ?, rutaUbicacion = ?, estado= ?, motivoInvalidez = ? " +
+            "WHERE idarchivo = ?",
             new ArrayList<Object>() {
             {
-                add(archivo.getIdHistorial());
+                add(archivo.getHistorial().getId());
                 add(archivo.getTitulo());
                 add(archivo.getRutaUbicacion());
                 add(archivo.getEstado());
                 add(archivo.getMotivoInvalidez());
 
             }
-        }
-        ) == 1) { // 1 indica que hay 1 fila afectada
+        }) == 1) { // 1 indica que hay 1 fila afectada
             return true;
         }
         return false;

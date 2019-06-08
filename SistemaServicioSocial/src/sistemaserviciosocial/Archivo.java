@@ -25,7 +25,7 @@ public class Archivo {
     private String rutaUbicacion;
     private String estado;
     private String motivoInvalidez = null;
-    private int idHistorial;
+    private HistorialAlumnoSS historial;
 
     /**
      * Recurre una instancia Archivo
@@ -35,25 +35,41 @@ public class Archivo {
      * @param estado estado del archivo
      * @param motivoInvalidez motivo por el que se invalida un archivo
      */
-    public Archivo(int id, int idHistorial, String titulo, String rutaUbicacion, String estado, String motivoInvalidez) {
+    public Archivo(
+        int id, HistorialAlumnoSS historial, String titulo, String rutaUbicacion, 
+        String estado, String motivoInvalidez
+    ) {
         this.titulo = titulo;
         this.rutaUbicacion = rutaUbicacion;
         this.estado = estado;
         this.motivoInvalidez = motivoInvalidez;
         this.id = id;
-        this.idHistorial = idHistorial;
+        this.historial = historial;
+    }
+
+    /**
+     * Guarda este archivo en la base de datos, sólo si su identificador es igual a cero.
+     * 
+     * @return <code>true</code> si se guardó correctamente; <code>false</code> si no.
+     */
+    public boolean guardar() {
+        if (id > 0) {
+            return false;
+        }
+        IArchivoDAO archivoDAO = new ArchivoDAO();
+        return (archivoDAO.insertArchivo(this));
     }
 
     public void setId(int id) {
         this.id = id;
     }
 
-    public int getIdHistorial() {
-        return idHistorial;
+    public HistorialAlumnoSS getHistorial() {
+        return historial;
     }
 
-    public void setIdHistorial(int idHistorial) {
-        this.idHistorial = idHistorial;
+    public void setHistorial(HistorialAlumnoSS historial) {
+        this.historial = historial;
     }
 
     public int getId() {

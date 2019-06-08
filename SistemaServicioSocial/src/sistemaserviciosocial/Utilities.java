@@ -11,6 +11,12 @@
  */
 package sistemaserviciosocial;
 
+import java.io.File;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.util.HashMap;
+import java.util.Map;
+
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
@@ -22,6 +28,21 @@ import javafx.collections.ObservableList;
  * @since 2019/06/06
  */
 public class Utilities {
+
+    public static final ObservableList<String> TIPOS_ARCHIVOS = FXCollections.observableArrayList(
+        "Reporte", "Carta de aceptación", "Oficio de asignación"
+    );
+
+    private static final Map<String, String> CONVERSION_TIPOS_ARCHIVOS = 
+        new HashMap<String, String>() {
+        {
+            put("Reporte", "Reporte");
+            put("Carta de aceptación", "CartaAceptación");
+            put("Oficio de asignación", "OficioAsignación");
+        }
+    };
+
+    public static final String ARCHIVOS_RUTA = "Archivos";
 
     public static ObservableList<Alumno> filterAlumnos(
         ObservableList<Alumno> list, UtilitiesFilters filterType
@@ -37,5 +58,45 @@ public class Utilities {
                 break;
         }
         return newList;
+    }
+
+    /**
+     * Retorna un nombre de archivo adaptado a un tipo de archivo y al nombre de un alumno.
+     * 
+     * @param archivo archivo a adaptar
+     * @param tipoArchivo tipo de archivo
+     * @param alumno alumno
+     * @return nombre de archivo adaptado
+     */
+    public static String setFileName(File archivo, String tipoArchivo, Alumno alumno) {
+        String nombreArchivo = archivo.getName();
+        String[] nombreArchivoSplit = nombreArchivo.split("\\.");
+        String nuevoNombre = CONVERSION_TIPOS_ARCHIVOS.get(tipoArchivo) + "_" + 
+            alumno.getFullName(true, false) + "." + 
+            nombreArchivoSplit[nombreArchivoSplit.length - 1];
+        return nuevoNombre;
+    }
+
+    /**
+     * Retorna la ruta donde se encuentran los archivos correspondientes a un
+     * Servicio Social.
+     * 
+     * @param servicioSocial servicio social
+     * @return ruta sin terminación <code>/</code>
+     */
+    public static Path getArchivosPath(ServicioSocial servicioSocial) {
+        return Paths.get(ARCHIVOS_RUTA + "/SS_" + servicioSocial.getId());
+    }
+
+    /**
+     * Retorna la ruta donde se encuentran los archivos de un ALumno correspondiente a un
+     * Servicio Social.
+     * 
+     * @param servicioSocial servicio social
+     * @param alumno alumno
+     * @return ruta sin terminación <code>/</code>
+     */
+    public static Path getArchivosPathAlumno(ServicioSocial servicioSocial, Alumno alumno) {
+        return Paths.get(getArchivosPath(servicioSocial) + "/" + alumno.getMatricula());
     }
 }

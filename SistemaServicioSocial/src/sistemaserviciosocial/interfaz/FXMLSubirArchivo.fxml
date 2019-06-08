@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.collections.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="356.0" prefWidth="503.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2" fx:controller="sistemaserviciosocial.controlador.FXMLSubirArchivoController">
+  <children>
+    <ComboBox fx:id="tipoArchivoComboBox" layoutX="23.0" layoutY="98.0" prefHeight="21.0" prefWidth="212.0">
+      <items>
+        <FXCollections fx:factory="observableArrayList">
+          <String fx:value="Item 1" />
+          <String fx:value="Item 2" />
+          <String fx:value="Item 3" />
+        </FXCollections>
+      </items>
+    </ComboBox>
+    <Label layoutX="23.0" layoutY="23.0" text="Subir archivo">
+      <font>
+        <Font name="System Bold" size="21.0" />
+      </font>
+    </Label>
+    <Label layoutX="23.0" layoutY="78.0" text="Tipo de archivo">
+      <font>
+        <Font size="15.0" fx:id="x1" />
+      </font>
+    </Label>
+    <Button fx:id="examinarButton" layoutX="398.0" layoutY="164.0" mnemonicParsing="false" text="Examinar" />
+    <TextField fx:id="rutaArchivoTextField" disable="false" layoutX="23.0" layoutY="164.0" prefWidth="368.0" />
+    <Label font="$x1" layoutX="23.0" layoutY="144.0" text="Ruta de archivo" />
+    <Button fx:id="subirButton" layoutX="316.0" layoutY="321.0" mnemonicParsing="false" prefWidth="68.0" text="Subir" />
+    <Button fx:id="cancelarButton" layoutX="408.0" layoutY="321.0" mnemonicParsing="false" text="Cancelar" />
+  </children>
+</AnchorPane>

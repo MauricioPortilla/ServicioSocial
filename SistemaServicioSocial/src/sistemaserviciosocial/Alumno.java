@@ -293,5 +293,28 @@ public class Alumno {
 	public Inscripcion getInscripcion() {
 		return inscripcion;
 	}
+
+	/**
+	 * Retorna el nombre completo del alumno.
+	 * 
+	 * @param reverse <code>true</code> si se desea el nombre comenzando por
+	 *                apellidos; <code>false</code> si se desea comenzando por el
+	 *                nombre.
+	 * @param whiteSpaces <code>true</code> si se desea separar el nombre completo con espacios;
+	 * 					  <code>false</code> si no se desea separar.
+	 * @return nombre completo
+	 */
+	public String getFullName(boolean reverse, boolean whiteSpaces) {
+		if (!reverse) {
+			if (whiteSpaces) {
+				return nombre + " " + paterno + " " + materno;
+			}
+			return nombre + paterno + materno;
+		}
+		if (whiteSpaces) {
+			return paterno + " " + materno + " " + nombre;
+		}
+		return paterno + materno + nombre;
+	}
     
 }

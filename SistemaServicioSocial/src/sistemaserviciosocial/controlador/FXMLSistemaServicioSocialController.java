@@ -63,8 +63,9 @@ public class FXMLSistemaServicioSocialController {
 			@Override
 			public void handle(ActionEvent event) {
 				try {
-					FXMLLoader loader = new FXMLLoader(
-							getClass().getResource("/sistemaserviciosocial/interfaz/FXMLAsignarServicioSocial.fxml"));
+					FXMLLoader loader = new FXMLLoader(getClass().getResource(
+						"/sistemaserviciosocial/interfaz/FXMLSubirArchivo.fxml"
+					));
 					Stage stage = new Stage();
 					stage.setScene(new Scene((AnchorPane) loader.load()));
 					stage.setTitle("Asignar servicio social");
