@@ -106,6 +106,20 @@ public class Alumno {
 		return solicitudAsignadaDAO.insertSolicitudAsignada(inscripcion.getHistorial(), solicitud);
 	}
 
+	public boolean asignarProyecto(Proyecto proyecto) {
+		IProyectoAsignadoDAO proyectoAsignadoDAO = new ProyectoAsignadoDAO();
+		return proyectoAsignadoDAO.insertProyectoAsignado(inscripcion.getHistorial(), proyecto);
+	}
+
+	/**
+	 * Verifica si el alumno tiene datos cargados.
+	 * 
+	 * @return <code>true</code> si tiene una matrícula asignada. <code>false</code> si no.
+	 */
+	public boolean isLoaded() {
+		return (matricula != null);
+	}
+
 	/**
 	 * Establece una matrícula.
 	 * 

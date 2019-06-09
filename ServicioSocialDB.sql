@@ -121,14 +121,14 @@ CREATE TABLE proyecto (
 );
 
 CREATE TABLE solicitudAsignada (
-    idhistorial int NOT NULL,
+    idhistorial int UNIQUE NOT NULL,
     FOREIGN KEY (idhistorial) REFERENCES historialAlumnoSS(idhistorial),
     idsolicitud int NOT NULL,
     FOREIGN KEY (idsolicitud) REFERENCES solicitud(idsolicitud)
 );
 
 CREATE TABLE proyectoAsignado (
-    idhistorial int NOT NULL,
+    idhistorial int UNIQUE NOT NULL,
     FOREIGN KEY (idhistorial) REFERENCES historialAlumnoSS(idhistorial),
     idproyecto int NOT NULL,
     FOREIGN KEY (idproyecto) REFERENCES proyecto(idproyecto)

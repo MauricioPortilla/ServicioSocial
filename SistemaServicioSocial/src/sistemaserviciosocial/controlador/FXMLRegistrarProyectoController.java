@@ -11,7 +11,6 @@
  */
 package sistemaserviciosocial.controlador;
 
-import java.io.IOException;
 import java.net.URL;
 import java.time.LocalDate;
 import java.util.ArrayList;
@@ -22,8 +21,6 @@ import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.SelectionMode;
@@ -33,8 +30,6 @@ import javafx.scene.control.TextField;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
-import javafx.scene.layout.AnchorPane;
-import javafx.stage.Stage;
 import sistemaserviciosocial.Alumno;
 import sistemaserviciosocial.HistorialAlumnoSS;
 import sistemaserviciosocial.ISolicitudDAO;
@@ -201,6 +196,10 @@ public class FXMLRegistrarProyectoController {
                     solicitudSeleccionada.getActividades(), LocalDate.now()
                 );
                 if (proyectoNuevo.guardar()) {
+                    for (Alumno alumnoSeleccionado : alumnosSeleccionados) {
+                        alumnoSeleccionado.asignarProyecto(proyectoNuevo);
+                        alumnosAsignadosTableView.getItems().remove(alumnoSeleccionado);
+                    }
                     new Alert(AlertType.INFORMATION, "Proyecto registrado").show();
                 } else {
                     new Alert(AlertType.ERROR, "Ocurrió un error con la base de datos").show();

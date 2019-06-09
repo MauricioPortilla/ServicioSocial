@@ -18,8 +18,10 @@ package sistemaserviciosocial;
  * @version 1.0
  * @since 2019/05/30
  */
+import java.math.BigInteger;
 import java.util.ArrayList;
 import sistemaserviciosocial.engine.SQL;
+import sistemaserviciosocial.engine.SQLRow;
 
 public class ProyectoDAO implements IProyectoDAO {
 
@@ -33,7 +35,9 @@ public class ProyectoDAO implements IProyectoDAO {
 
     @Override
     public boolean insertProyecto(Proyecto proyecto, ResponsableProyecto responsableProyecto) {
-        if (SQL.executeTransactionUpdate("INSERT INTO responsableProyecto VALUES (NULL, ?, ?, ?, ?, ?)", new ArrayList<Object>() {
+        if (SQL.executeTransactionUpdate(
+            "INSERT INTO responsableProyecto VALUES (NULL, ?, ?, ?, ?, ?)", 
+            new ArrayList<Object>() {
             {
                 add(responsableProyecto.getNombre());
                 add(responsableProyecto.getPaterno());
@@ -53,6 +57,21 @@ public class ProyectoDAO implements IProyectoDAO {
                 add(proyecto.getFechaRegistro());
             }
         }) == 1) {
+            try {
+                SQL.executeQuery("SELECT MAX(idproyecto) AS lastId FROM proyecto", null, 
+                    (result) -> {
+                        SQLRow row = result.get(0);
+                        proyecto.setId((int) row.getColumnData("lastId"));
+                        return true;
+                    }, () -> {
+                        return false;
+                    }
+                );
+			} catch (Exception e) {
+				// TODO Auto-generated catch block
+                e.printStackTrace();
+                System.out.println("insertProyecto Exception -> " + e.getMessage());
+			}
             return true;
         }
         return false;
