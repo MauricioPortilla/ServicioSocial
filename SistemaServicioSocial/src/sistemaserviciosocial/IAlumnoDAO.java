@@ -29,5 +29,13 @@ public interface IAlumnoDAO {
      * @param idServicioSocial identificador del servicio social
      * @return lista de alumnos
      */
-	ObservableList<Alumno> getAlumnos(int idServicioSocial);
+    public ObservableList<Alumno> getAlumnos(int idServicioSocial);
+    
+    /**
+     * Retorna un alumno registrado en el sistema que posea la matrícula especificada.
+     * 
+     * @param matricula matrícula del alumno
+     * @return alumno
+     */
+    public Alumno getAlumno(String matricula);
 }

@@ -28,4 +28,13 @@ public interface IInscripcionDAO {
      * @return inscripción del alumno
      */
     public Inscripcion getInscripcion(Alumno alumno);
+
+    /**
+     * Retorna una inscripción de la base de datos que esté relacionada con
+     * el historial ingresado.
+     * 
+     * @param historial historial del alumno
+     * @return inscripción del alumno
+     */
+    public Inscripcion getInscripcion(HistorialAlumnoSS historial);
 }

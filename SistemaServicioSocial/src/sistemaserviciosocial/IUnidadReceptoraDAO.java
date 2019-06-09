@@ -1,4 +1,4 @@
-/**
+/*
  * Sistema de Servicio Social
  * Descripción: Sistema para el control de alumnos que cursan o cursaron la experiencia educativa
  * 				de Servicio Social.
@@ -9,20 +9,20 @@
  * 			López Lujan Bruno Antonio
  * Fecha de creación: Mayo, 2019
  */
+
 package sistemaserviciosocial;
 
 /**
- * Clase Proyecto
  *
- * @author Bruno Antonio López Luján
- * @version 1.0
- * @since 2019/05/30
+ * @author Mauricio
  */
-public interface IProyectoDAO {
-
-    public Proyecto getProyecto(int idProyecto);
-
-    public boolean insertProyecto(Proyecto proyecto, ResponsableProyecto responsableProyecto);
-
-    public boolean updateProyecto(Proyecto proyecto);
+public interface IUnidadReceptoraDAO {
+    
+    /**
+     * Retorna una unidad receptora con base en su identificador.
+     * 
+     * @param idUnidadReceptora identificador de la unidad receptora
+     * @return la unidad receptora
+     */
+    public UnidadReceptora getUnidadReceptora(int idUnidadReceptora);
 }

@@ -29,16 +29,21 @@ import javafx.collections.ObservableList;
  */
 public class Utilities {
 
+    public static final String TIPO_ARCHIVO_REPORTE = "Reporte";
+    public static final String TIPO_ARCHIVO_CARTA_ACEPTACION = "Carta de aceptación";
+    public static final String TIPO_ARCHIVO_OFICIO_ASIGNACION = "Oficio de asignación";
+    
+
     public static final ObservableList<String> TIPOS_ARCHIVOS = FXCollections.observableArrayList(
-        "Reporte", "Carta de aceptación", "Oficio de asignación"
+        TIPO_ARCHIVO_REPORTE, TIPO_ARCHIVO_CARTA_ACEPTACION, TIPO_ARCHIVO_OFICIO_ASIGNACION
     );
 
     private static final Map<String, String> CONVERSION_TIPOS_ARCHIVOS = 
         new HashMap<String, String>() {
         {
-            put("Reporte", "Reporte");
-            put("Carta de aceptación", "CartaAceptación");
-            put("Oficio de asignación", "OficioAsignación");
+            put(TIPO_ARCHIVO_REPORTE, "Reporte");
+            put(TIPO_ARCHIVO_CARTA_ACEPTACION, "CartaAceptación");
+            put(TIPO_ARCHIVO_OFICIO_ASIGNACION, "OficioAsignación");
         }
     };
 

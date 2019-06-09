@@ -32,22 +32,27 @@ public class ProyectoDAO implements IProyectoDAO {
     }
 
     @Override
-    public boolean insertProyecto(Proyecto proyecto) {
-        if (SQL.executeUpdate(
-            "INSERT INTO proyecto VALUES (NULL, ?, ?, ?, ?, ?, ?, ?, ?)",
-            new ArrayList<Object>() {
-                {
-                    add(proyecto.getIdSolicitud());
-                    add(proyecto.getIdResponsable());
-                    add(proyecto.getNombre());
-                    add(proyecto.getDescripcion());
-                    add(proyecto.getHorarioAlumno());
-                    add(proyecto.getNumAlumnos());
-                    add(proyecto.getActividades());
-                    add(proyecto.getFechaRegistro());
-                }
+    public boolean insertProyecto(Proyecto proyecto, ResponsableProyecto responsableProyecto) {
+        if (SQL.executeTransactionUpdate("INSERT INTO responsableProyecto VALUES (NULL, ?, ?, ?, ?, ?)", new ArrayList<Object>() {
+            {
+                add(responsableProyecto.getNombre());
+                add(responsableProyecto.getPaterno());
+                add(responsableProyecto.getMaterno());
+                add(responsableProyecto.getCorreo());
+                add(responsableProyecto.getTelefono());
             }
-        ) == 1) { // 1 indica que hay 1 fila afectada
+        }, "INSERT INTO proyecto VALUES (NULL, ?, ?, ?, ?, ?, ?, ?, ?)", new ArrayList<Object>() {
+            {
+                add(proyecto.getSolicitudBase().getId());
+                add("RETURNED_ID");
+                add(proyecto.getNombre());
+                add(proyecto.getDescripcion());
+                add(proyecto.getHorarioAlumno());
+                add(proyecto.getNumAlumnos());
+                add(proyecto.getActividades());
+                add(proyecto.getFechaRegistro());
+            }
+        }) == 1) {
             return true;
         }
         return false;

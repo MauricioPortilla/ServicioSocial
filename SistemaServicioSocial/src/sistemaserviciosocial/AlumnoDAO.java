@@ -67,5 +67,38 @@ public class AlumnoDAO implements IAlumnoDAO {
 		}
         return alumnos;
 	}
+
+	@Override
+	public Alumno getAlumno(String matricula) {
+		try {
+			Alumno alumno = new Alumno();
+			SQL.executeQuery("SELECT * FROM alumno WHERE matricula = ?", new ArrayList<Object>() {
+				{
+					add(matricula);
+				}
+			}, (result) -> {
+				SQLRow row = result.get(0);
+				alumno.setMatricula(matricula);
+				alumno.setNombre(row.getColumnData("nombre").toString());
+				alumno.setPaterno(row.getColumnData("paterno").toString());
+				alumno.setMaterno(row.getColumnData("materno").toString());
+				alumno.setTelefono(row.getColumnData("telefono").toString());
+				alumno.setCorreoPersonal(row.getColumnData("correoPersonal").toString());
+				alumno.setNombreContacto(row.getColumnData("nombreContacto").toString());
+				alumno.setCorreoContacto(row.getColumnData("correoContacto").toString());
+				alumno.setTelefonoContacto(row.getColumnData("telefonoContacto").toString());
+				alumno.setPromedio((float) row.getColumnData("promedio"));
+				alumno.setEstado(row.getColumnData("estado").toString());
+				return true;
+			}, () -> {
+				return false;
+			});
+			return alumno;
+		} catch (Exception e) {
+			System.out.println("getAlumnos Exception -> " + e.getMessage());
+			e.printStackTrace();
+			return null;
+		}
+	}
 	
 }

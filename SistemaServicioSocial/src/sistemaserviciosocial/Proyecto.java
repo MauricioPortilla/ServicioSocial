@@ -22,26 +22,40 @@ import java.time.LocalDate;
 
 public class Proyecto {
 
+    private int id;
     private String nombre;
     private String descripcion;
     private String horarioAlumno;
     private int numAlumnos;
     private String actividades;
     private LocalDate fechaRegistro;
-    private int idProyecto;
-    private int idSolicitud;
-    private int idResponsable;
+    private Solicitud solicitudBase;
+    private ResponsableProyecto responsableProyecto;
 
-    public Proyecto(int idProyecto, int idSolicitud, int idResponsable, String nombre, String descripcion, String horarioAlumno, int numAlumnos, String actividades, LocalDate fechaRegistro) {
-        this.idProyecto = idProyecto;
-        this.idSolicitud = idSolicitud;
-        this.idResponsable = idResponsable;
+    public Proyecto(
+        int id, Solicitud solicitudBase, ResponsableProyecto responsableProyecto, String nombre, 
+        String descripcion, String horarioAlumno, int numAlumnos, String actividades, 
+        LocalDate fechaRegistro
+    ) {
+        this.id = id;
+        this.solicitudBase = solicitudBase;
+        this.responsableProyecto = responsableProyecto;
         this.nombre = nombre;
         this.descripcion = descripcion;
         this.horarioAlumno = horarioAlumno;
         this.numAlumnos = numAlumnos;
         this.actividades = actividades;
         this.fechaRegistro = fechaRegistro;
+    }
+
+    /**
+     * Guarda el proyecto en la base de datos.
+     * 
+     * @return <code>true</code> si se guardó correctamente; <code>false</code> si no
+     */
+    public boolean guardar() {
+        IProyectoDAO proyectoDAO = new ProyectoDAO();
+        return proyectoDAO.insertProyecto(this, responsableProyecto);
     }
 
     public String getNombre() {
@@ -68,18 +82,6 @@ public class Proyecto {
         return fechaRegistro;
     }
 
-    public int getIdProyecto() {
-        return idProyecto;
-    }
-
-    public int getIdSolicitud() {
-        return idSolicitud;
-    }
-
-    public int getIdResponsable() {
-        return idResponsable;
-    }
-
     public void setNombre(String nombre) {
         this.nombre = nombre;
     }
@@ -104,16 +106,30 @@ public class Proyecto {
         this.fechaRegistro = fechaRegistro;
     }
 
-    public void setIdProyecto(int idProyecto) {
-        this.idProyecto = idProyecto;
+    public int getId() {
+        return id;
     }
 
-    public void setIdSolicitud(int idSolicitud) {
-        this.idSolicitud = idSolicitud;
+    public void setId(int id) {
+        this.id = id;
     }
 
-    public void setIdResponsable(int idResponsable) {
-        this.idResponsable = idResponsable;
+    public Solicitud getSolicitudBase() {
+        return solicitudBase;
     }
+
+    public void setSolicitudBase(Solicitud solicitudBase) {
+        this.solicitudBase = solicitudBase;
+    }
+
+    public ResponsableProyecto getResponsableProyecto() {
+        return responsableProyecto;
+    }
+
+    public void setResponsableProyecto(ResponsableProyecto responsableProyecto) {
+        this.responsableProyecto = responsableProyecto;
+    }
+    
+    
 
 }

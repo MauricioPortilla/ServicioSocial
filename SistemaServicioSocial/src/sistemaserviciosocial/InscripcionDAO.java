@@ -55,5 +55,38 @@ public class InscripcionDAO implements IInscripcionDAO {
             return null;
         }
     }
+
+    @Override
+    public Inscripcion getInscripcion(HistorialAlumnoSS historial) {
+        try {
+            Inscripcion inscripcion = new Inscripcion();
+            SQL.executeQuery(
+                "SELECT * FROM inscripcion WHERE idinscripcion IN (" +
+                    "SELECT idinscripcion FROM historialAlumnoSS WHERE idhistorial = ?)", 
+                new ArrayList<Object>() {
+                {
+                    add(historial.getId());
+                }
+            }, (result) -> {
+                SQLRow row = result.get(0);
+                inscripcion.setId((int) row.getColumnData("idinscripcion"));
+                inscripcion.setAlumno(new Alumno(row.getColumnData("matriculaAlumno").toString()));
+                inscripcion.setFecha(((Date) row.getColumnData("fecha")).toLocalDate());
+                inscripcion.setServicioSocial(
+                    new ServicioSocial((int) row.getColumnData("idserviciosocial"))
+                );
+                inscripcion.setTipo(row.getColumnData("tipo").toString());
+                return true;
+            }, () -> {
+                return false;
+            });
+            return inscripcion;
+        } catch (Exception e) {
+            //TODO: handle exception
+            e.printStackTrace();
+            System.out.println("getInscripcion Exception -> " + e.getMessage());
+            return null;
+        }
+    }
     
 }

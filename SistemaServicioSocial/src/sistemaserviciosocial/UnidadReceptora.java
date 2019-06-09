@@ -24,6 +24,7 @@ import java.util.ArrayList;
 public class UnidadReceptora {
     private String nombre;
     private String correo;
+    private String telefono;
     private String calle;
     private String numExt;
     private String colonia;
@@ -31,25 +32,50 @@ public class UnidadReceptora {
     private ArrayList<Solicitud> solicitudes = new ArrayList<>();
 
     /**
+     * Crea una instancia vacía.
+     */
+    public UnidadReceptora() {
+    }
+
+    /**
      * Crea una instancia con base en datos predefinidos.
      * 
      * @param nombre nombre de la unidad receptora
      * @param correo correo de la unidad receptora
+     * @param telefono telefono de la unidad receptora
      * @param calle calle de la unidad receptora
      * @param numExt número exterior de la unidad receptora
      * @param colonia colonia de la unidad receptora
      * @param codigoPostal código postal de la unidad receptora
      */
     public UnidadReceptora(
-        String nombre, String correo, String calle, String numExt, String colonia, 
-        String codigoPostal
+        String nombre, String correo, String telefono, String calle, String numExt, 
+        String colonia, String codigoPostal
     ) {
         this.nombre = nombre;
         this.correo = correo;
+        this.telefono = telefono;
         this.calle = calle;
         this.numExt = numExt;
         this.colonia = colonia;
         this.codigoPostal = codigoPostal;
+    }
+
+    /**
+     * Crea una instancia con base en un identificador de la base de datos.
+     * 
+     * @param id identificador de la unidad receptora
+     */
+    public UnidadReceptora(int id) {
+        IUnidadReceptoraDAO unidadReceptoraDAO = new UnidadReceptoraDAO();
+        UnidadReceptora unidadReceptoraAux = unidadReceptoraDAO.getUnidadReceptora(id);
+        this.nombre = unidadReceptoraAux.nombre;
+        this.correo = unidadReceptoraAux.correo;
+        this.telefono = unidadReceptoraAux.telefono;
+        this.calle = unidadReceptoraAux.calle;
+        this.numExt = unidadReceptoraAux.numExt;
+        this.colonia = unidadReceptoraAux.colonia;
+        this.codigoPostal = unidadReceptoraAux.codigoPostal;
     }
 
     /**
@@ -86,6 +112,24 @@ public class UnidadReceptora {
      */
     public void setCorreo(String correo) {
         this.correo = correo;
+    }
+
+    /**
+     * Retorna el telefono de la unidad receptora.
+     * 
+     * @return telefono de la unidad receptora
+     */
+    public String getTelefono() {
+        return telefono;
+    }
+
+    /**
+     * Establece el telefono de la unidad receptora.
+     * 
+     * @param telefono telefono de la unidad receptora nuevo.
+     */
+    public void setTelefono(String telefono) {
+        this.telefono = telefono;
     }
 
     /**
@@ -158,6 +202,11 @@ public class UnidadReceptora {
      */
     public void setCodigoPostal(String codigoPostal) {
         this.codigoPostal = codigoPostal;
+    }
+
+    @Override
+    public String toString() {
+        return nombre;
     }
     
     

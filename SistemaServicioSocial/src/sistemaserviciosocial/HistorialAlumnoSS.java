@@ -70,7 +70,7 @@ public class HistorialAlumnoSS {
     public HistorialAlumnoSS(int id) {
         this.id = id;
         if (inscripcion == null) {
-            return;
+            this.inscripcion = new InscripcionDAO().getInscripcion(this);
         }
         IHistorialAlumnoSSDAO historialAlumnoSSDAO = new HistorialAlumnoSSDAO();
         HistorialAlumnoSS historialAux = historialAlumnoSSDAO.getHistorial(inscripcion);

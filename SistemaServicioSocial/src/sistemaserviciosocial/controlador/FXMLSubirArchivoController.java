@@ -65,6 +65,8 @@ public class FXMLSubirArchivoController {
         "correoPersonal", "nombreContacto", "correoContacto", "telefonoContacto", 9.1f, "estado"
     );
     private File fileSelected = null;
+    private boolean openedAsInclude = false;
+    public boolean didFinish = false;
 
     @FXML
     void initialize() {
@@ -82,9 +84,18 @@ public class FXMLSubirArchivoController {
      * Inicializa la ventana con un alumno.
      * 
      * @param alumno alumno a utilizar
+     * @param openedAsInclude <code>true</code> si debería cerrarse la ventana al subirse
+     *                        el archivo; <code>false</code> si no
+     * @param tipoArchivo bloquea el combobox del tipo de archivo con uno especificado. Si
+     *                    está vacío, no estará bloqueado
      */
-    public void initData(Alumno alumno) {
+    public void initData(Alumno alumno, boolean openedAsInclude, String tipoArchivo) {
         this.alumno = alumno;
+        this.openedAsInclude = openedAsInclude;
+        if (!tipoArchivo.isEmpty()) {
+            tipoArchivoComboBox.setDisable(true);
+            tipoArchivoComboBox.getSelectionModel().select(tipoArchivo);
+        }
     }
 
     /**
@@ -147,6 +158,11 @@ public class FXMLSubirArchivoController {
                 );
                 if (nuevoArchivo.guardar()) {
                     new Alert(AlertType.INFORMATION, "Archivo subido con éxito").showAndWait();
+                    if (openedAsInclude) {
+                        didFinish = true;
+                        ((Stage) subirButton.getScene().getWindow()).close();
+                        return;
+                    }
                     fileSelected = null;
                     rutaArchivoTextField.clear();
                 } else {

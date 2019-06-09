@@ -30,6 +30,7 @@ public class Solicitud {
     private String responsableUnidad;
     private String requisitos;
 	private LocalDate fechaRegistro;
+	private UnidadReceptora unidadReceptora;
 	
 	/**
 	 * Crea una instancia vacía.
@@ -48,10 +49,12 @@ public class Solicitud {
 	 * @param responsableUnidad responsable de la solicitud
 	 * @param requisitos requisitos de la solicitud
 	 * @param fechaRegistro fecha de registro de la solicitud
+	 * @param unidadReceptora unidad receptora de la solicitud
 	 */
     public Solicitud(
         int id, int numAlumnos, String actividades, String lugar, String horario, 
-        String responsableUnidad, String requisitos, LocalDate fechaRegistro
+		String responsableUnidad, String requisitos, LocalDate fechaRegistro, 
+		UnidadReceptora unidadReceptora
     ) {
         this.id = id;
         this.numAlumnos = numAlumnos;
@@ -60,7 +63,8 @@ public class Solicitud {
         this.horario = horario;
         this.responsableUnidad = responsableUnidad;
         this.requisitos = requisitos;
-        this.fechaRegistro = fechaRegistro;
+		this.fechaRegistro = fechaRegistro;
+		this.unidadReceptora = unidadReceptora;
 	}
 
 	/**
@@ -87,6 +91,7 @@ public class Solicitud {
 		this.responsableUnidad = solicitudAux.responsableUnidad;
 		this.requisitos = solicitudAux.requisitos;
 		this.fechaRegistro = solicitudAux.fechaRegistro;
+		this.unidadReceptora = solicitudAux.unidadReceptora;
 	}
 
 	/**
@@ -162,6 +167,15 @@ public class Solicitud {
 	}
 
 	/**
+	 * Establece la unidad receptora de la solicitud.
+	 * 
+	 * @param unidadReceptora unidad receptora de la solicitud
+	 */
+	public void setUnidadReceptora(UnidadReceptora unidadReceptora) {
+		this.unidadReceptora = unidadReceptora;
+	}
+
+	/**
 	 * Retorna el identificador de la solicitud.
 	 * 
 	 * @return identificador de la solicitud
@@ -231,6 +245,15 @@ public class Solicitud {
 	 */
 	public LocalDate getFechaRegistro() {
 		return fechaRegistro;
+	}
+
+	/**
+	 * Retorna la unidad receptora de la solicitud.
+	 * 
+	 * @return unidad receptora de la solicitud
+	 */
+	public UnidadReceptora getUnidadReceptora() {
+		return unidadReceptora;
 	}
     
 }

@@ -46,7 +46,8 @@ public class SolicitudDAO implements ISolicitudDAO {
 			                row.getColumnData("horario").toString(), 
 			                row.getColumnData("responsableUnidad").toString(), 
 			                row.getColumnData("requisitos").toString(), 
-			                ((Date) row.getColumnData("fechaRegistro")).toLocalDate()
+                            ((Date) row.getColumnData("fechaRegistro")).toLocalDate(),
+                            new UnidadReceptora((int) row.getColumnData("idunidadreceptora"))
 			            )
 			        );
 			    }
@@ -92,6 +93,39 @@ public class SolicitudDAO implements ISolicitudDAO {
             System.out.println(e.getMessage());
             return null;
         }
+    }
+
+    @Override
+    public ObservableList<Solicitud> getSolicitudesSinProyecto() {
+        ObservableList<Solicitud> solicitudes = FXCollections.observableArrayList();
+		try {
+            SQL.executeQuery("SELECT * FROM solicitud WHERE idsolicitud NOT IN (" +
+                "SELECT idsolicitud FROM proyecto);", null, (result) -> {
+			    for (SQLRow row : result) {
+			        solicitudes.add(
+			            new Solicitud(
+			                (int) row.getColumnData("idsolicitud"), 
+			                (int) row.getColumnData("numAlumnos"), 
+			                row.getColumnData("actividades").toString(), 
+			                row.getColumnData("lugar").toString(), 
+			                row.getColumnData("horario").toString(), 
+			                row.getColumnData("responsableUnidad").toString(), 
+			                row.getColumnData("requisitos").toString(), 
+                            ((Date) row.getColumnData("fechaRegistro")).toLocalDate(),
+                            new UnidadReceptora((int) row.getColumnData("idunidadreceptora"))
+			            )
+			        );
+			    }
+			    return true;
+			}, () -> {
+			    return false;
+			});
+		} catch (Exception e) {
+            System.out.println("getSolicitudesSinProyecto Exception -> " + e.getMessage());
+            e.printStackTrace();
+			new Alert(AlertType.ERROR, "Ocurrió un error con la base de datos").showAndWait();
+		}
+        return solicitudes;
     }
 	
 }

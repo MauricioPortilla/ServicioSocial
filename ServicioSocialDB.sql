@@ -91,7 +91,9 @@ CREATE TABLE solicitud (
     horario varchar(255) NOT NULL,
     responsableUnidad varchar(100) NOT NULL,
     requisitos varchar(255) NOT NULL,
-    fechaRegistro date NOT NULL
+    fechaRegistro date NOT NULL,
+    idunidadreceptora int NOT NULL,
+    FOREIGN KEY (idunidadreceptora) REFERENCES unidadReceptora (idunidadreceptora)
 );
 
 CREATE TABLE responsableProyecto (

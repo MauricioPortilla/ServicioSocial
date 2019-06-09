@@ -38,4 +38,12 @@ public interface ISolicitudDAO {
      * @return solicitud encontrada
      */
     public Solicitud getSolicitud(int id);
+
+    /**
+     * Retorna una lista de todas las solicitudes que no estén relacionadas con
+     * un Proyecto.
+     * 
+     * @return lista de solicitudes
+     */
+    public ObservableList<Solicitud> getSolicitudesSinProyecto();
 }

@@ -34,6 +34,12 @@ public class Alumno {
 	private ServicioSocial[] serviciosSociales = new ServicioSocial[2];
 
 	/**
+	 * Crea una instancia vacía.
+	 */
+	public Alumno() {
+	}
+
+	/**
 	 * Crea uns instancia Alumno con datos predefinidos.
 	 * 
 	 * @param matricula matricula del alumno
@@ -64,6 +70,28 @@ public class Alumno {
 		this.telefonoContacto = telefonoContacto;
 		this.promedio = promedio;
 		this.estado = estado;
+		this.inscripcion = new Inscripcion(this);
+	}
+
+	/**
+	 * Crea una instancia con base en la matrícula del alumno.
+	 * 
+	 * @param matricula matrícula del alumno
+	 */
+	public Alumno(String matricula) {
+		IAlumnoDAO alumnoDAO = new AlumnoDAO();
+		Alumno alumnoAux = alumnoDAO.getAlumno(matricula);
+		this.matricula = alumnoAux.matricula;
+		this.nombre = alumnoAux.nombre;
+		this.paterno = alumnoAux.paterno;
+		this.materno = alumnoAux.materno;
+		this.telefono = alumnoAux.telefono;
+		this.correoPersonal = alumnoAux.correoPersonal;
+		this.nombreContacto = alumnoAux.nombreContacto;
+		this.correoContacto = alumnoAux.correoContacto;
+		this.telefonoContacto = alumnoAux.telefonoContacto;
+		this.promedio = alumnoAux.promedio;
+		this.estado = alumnoAux.estado;
 		this.inscripcion = new Inscripcion(this);
 	}
 

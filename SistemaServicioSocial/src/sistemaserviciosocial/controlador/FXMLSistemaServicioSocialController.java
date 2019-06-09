@@ -68,11 +68,11 @@ public class FXMLSistemaServicioSocialController {
 			public void handle(ActionEvent event) {
 				try {
 					FXMLLoader loader = new FXMLLoader(getClass().getResource(
-						"/sistemaserviciosocial/interfaz/FXMLSubirArchivo.fxml"
+						"/sistemaserviciosocial/interfaz/FXMLRegistrarProyecto.fxml"
 					));
 					Stage stage = new Stage();
 					stage.setScene(new Scene((AnchorPane) loader.load()));
-					stage.setTitle("Asignar servicio social");
+					stage.setTitle("Registrar proyecto");
 					stage.show();
 				} catch (IOException e) {
 					new Alert(AlertType.ERROR, "Ocurrió un error al abrir la ventana.").show();
