@@ -87,87 +87,171 @@ public class Reporte {
         return (reporteDAO.insertReporte(this));
     }
 
+    /**
+     * Modifica un reporte
+     * @return reporte modificado
+     */
     public boolean modificar() {
         IReporteDAO reporteDAO = new ReporteDAO();
         return (reporteDAO.updateReporte(this));
     }
 
+    /**
+     * Regresa el id del reporte
+     * @return id de reporte
+     */
     public int getId() {
         return id;
     }
 
+    /**
+     * Establece un id de reporte
+     * @param id id de reporte
+     */
     public void setId(int id) {
         this.id = id;
     }
 
+    /**
+     * Regresa el número de reporte
+     * @return número de reporte
+     */
     public int getNumero() {
         return numero;
     }
 
+    /**
+     * Establece el número de reporte
+     * @param numero número de reporte
+     */
     public void setNumero(int numero) {
         this.numero = numero;
     }
 
+    /**
+     * Regresa las horas reportadas
+     * @return horas reportadas
+     */
     public int getHorasReportadas() {
         return horasReportadas;
     }
 
+    /**
+     * Establece las horas reportadas
+     * @param horasReportadas horas reportadas
+     */
     public void setHorasReportadas(int horasReportadas) {
         this.horasReportadas = horasReportadas;
     }
 
+    /**
+     * Regresa el mes del reporte
+     * @return mes del reporte
+     */
     public String getMes() {
         return mes;
     }
 
+    /**
+     * Establece el mes de reporte
+     * @param mes mes de reporte
+     */
     public void setMes(String mes) {
         this.mes = mes;
     }
 
+    /**
+     * Regresa la fecha de entrega del reporte
+     * @return fecha de entrega
+     */
     public LocalDate getFechaEntrega() {
         return fechaEntrega;
     }
 
+    /**
+     * Establece la fecha de entrega del reporte
+     * @param fechaEntrega fecha de entrega del reporte
+     */
     public void setFechaEntrega(LocalDate fechaEntrega) {
         this.fechaEntrega = fechaEntrega;
     }
 
+    /**
+     * Regresa el estado del reporte
+     * @return estado del reporte
+     */
     public String getEstado() {
         return estado;
     }
 
+    /**
+     * Establece el estado del reporte
+     * @param estado estado del reporte
+     */
     public void setEstado(String estado) {
         this.estado = estado;
     }
 
+    /**
+     * Regresa el motivo de invalidez del reporte
+     * @return motivo de invalidez del reporte
+     */
     public String getMotivoInvalidez() {
         return motivoInvalidez;
     }
 
+    /**
+     * Establece el motivo de invalidez del reporte
+     * @param motivoInvalidez motivo de invalidez del reporte
+     */
     public void setMotivoInvalidez(String motivoInvalidez) {
         this.motivoInvalidez = motivoInvalidez;
     }
-
+    
+    /**
+     * Regresa el historial del alumno
+     * @return historial del alumno
+     */
     public HistorialAlumnoSS getHistorialAlumno() {
         return historialAlumno;
     }
 
+    /**
+     * Establece el historial del laumno
+     * @param historialAlumno historial del alumno
+     */
     public void setHistorialAlumno(HistorialAlumnoSS historialAlumno) {
         this.historialAlumno = historialAlumno;
     }
 
+    /**
+     * Regresa la fehca de entrega del reporte
+     * @return fecha de entrega del reporte
+     */
     public FechaEntregaReporte getFechaEntregaReporte() {
         return fechaEntregaReporte;
     }
 
+    /**
+     * Establece la fecha de entrega del reporte
+     * @param fechaEntregaReporte fecha de entrega del reporte
+     */
     public void setFechaEntregaReporte(FechaEntregaReporte fechaEntregaReporte) {
         this.fechaEntregaReporte = fechaEntregaReporte;
     }
 
+    /**
+     * Regresa el archivo reporte
+     * @return archivo reporte
+     */
     public Archivo getArchivoReporte() {
         return archivoReporte;
     }
 
+    /**
+     * Establece un archivo reporte
+     * @param archivoReporte archivo reporte
+     */
     public void setArchivoReporte(Archivo archivoReporte) {
         this.archivoReporte = archivoReporte;
     }

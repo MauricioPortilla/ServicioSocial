@@ -30,6 +30,11 @@ import javafx.scene.control.Alert.AlertType;
  */
 public class AlumnoDAO implements IAlumnoDAO {
 
+  /**
+   * Crea una lista de alumnos de acuerdo con el servicio social
+   * @param idServicioSocial id del servicio social
+   * @return lista de alumnos
+   */
 	@Override
 	public ObservableList<Alumno> getAlumnos(int idServicioSocial) {
         ObservableList<Alumno> alumnos = FXCollections.observableArrayList();
@@ -68,6 +73,11 @@ public class AlumnoDAO implements IAlumnoDAO {
         return alumnos;
 	}
 
+    /**
+     * Selecciona a un alumno de acuerdo a su matricula
+     * @param matricula matricula del alumno
+     * @return alumno
+     */
 	@Override
 	public Alumno getAlumno(String matricula) {
 		try {

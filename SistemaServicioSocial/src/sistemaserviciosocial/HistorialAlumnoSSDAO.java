@@ -27,6 +27,7 @@ import sistemaserviciosocial.engine.SQLRow;
  */
 public class HistorialAlumnoSSDAO implements IHistorialAlumnoSSDAO {
 
+
     @Override
     public HistorialAlumnoSS getHistorial(int id) {
         try {
@@ -58,6 +59,7 @@ public class HistorialAlumnoSSDAO implements IHistorialAlumnoSSDAO {
             return null;
         }
     }
+
 
     @Override
     public HistorialAlumnoSS getHistorial(Inscripcion inscripcion) {

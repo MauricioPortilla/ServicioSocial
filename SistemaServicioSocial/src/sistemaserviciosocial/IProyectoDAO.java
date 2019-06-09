@@ -20,9 +20,25 @@ package sistemaserviciosocial;
  */
 public interface IProyectoDAO {
 
+  /**
+   * Regresa un proyecto de acuerdo a su id
+   * @param idProyecto id del proyecto
+   * @return proyecto
+   */
     public Proyecto getProyecto(int idProyecto);
 
+    /**
+     * Guarda un proyecto y responsable de proyecto
+     * @param proyecto proyecto
+     * @param responsableProyecto responsable del proyecto
+     * @return <code>true<code> al guardar exitosamente o <code>false</code> si no fue así
+     */
     public boolean insertProyecto(Proyecto proyecto, ResponsableProyecto responsableProyecto);
 
+    /**
+     * Modifica un proyecto
+     * @param proyecto proyecto
+     * @return <code>true<code> si se modificó exitosamente exitosamente o <code>false</code> si no fue así
+     */
     public boolean updateProyecto(Proyecto proyecto);
 }

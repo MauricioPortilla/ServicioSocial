@@ -27,6 +27,7 @@ import sistemaserviciosocial.engine.SQLRow;
  */
 public class FechaEntregaReporteDAO implements IFechaEntregaReporteDAO {
 
+ 
     @Override
     public ObservableList<FechaEntregaReporte> getFechaEntregas() {
         try {
@@ -53,6 +54,7 @@ public class FechaEntregaReporteDAO implements IFechaEntregaReporteDAO {
         }
     }
 
+ 
     @Override
     public FechaEntregaReporte getFechaEntrega(int id) {
         try {

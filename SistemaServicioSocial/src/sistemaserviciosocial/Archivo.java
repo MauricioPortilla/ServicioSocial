@@ -18,7 +18,6 @@ import java.io.IOException;
  * Archivo es la clase que contiene la información de un archivo del Servicio Social
  *
  * @author María Saarayim González Hernández
- * @author Mauricio Cruz Portilla
  * @version 1.0
  * @since 2019/05/28
  */

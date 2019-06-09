@@ -1,4 +1,4 @@
-/*
+ /*
  * Sistema de Servicio Social
  * Descripción: Sistema para el control de alumnos que cursan o cursaron la experiencia educativa
  * 				de Servicio Social.
@@ -62,34 +62,66 @@ public class FechaEntregaReporte {
         this.mes = fechaEntregaAux.mes;
     }
 
+    /**
+     * Regresa el id de la fecha de entrega de reporte
+     * @return id
+     */
     public int getId() {
         return id;
     }
 
+    /**
+     * Establece un id a la fecha de entrega
+     * @param id id de la fecha de entrega
+     */
     public void setId(int id) {
         this.id = id;
     }
 
+    /**
+     * Regresa la fecha de inicio para entregar el reporte
+     * @return fecha minima
+     */
     public LocalDate getFechaMinima() {
         return fechaMinima;
     }
-
+    
+    /**
+     * Establecce una fecha de inicio para entregar el reporte
+     * @param fechaMinima fecha minima para entregar reporte
+     */
     public void setFechaMinima(LocalDate fechaMinima) {
         this.fechaMinima = fechaMinima;
     }
 
+    /**
+     * Regresa la fecha límite para entregar el reporte
+     * @return regresa la fecha limite
+     */
     public LocalDate getFechaLimite() {
         return fechaLimite;
     }
 
+    /**
+     * Establece una fecha límite para entregar el reporte
+     * @param fechaLimite fecha limite para entregar el reporte
+     */
     public void setFechaLimite(LocalDate fechaLimite) {
         this.fechaLimite = fechaLimite;
     }
 
+    /**
+     * Regresa el mes del reporte
+     * @return mes del reporte
+     */
     public String getMes() {
         return mes;
     }
 
+    /**
+     * Establece un mes del reporte
+     * @param mes mes del reporte
+     */
     public void setMes(String mes) {
         this.mes = mes;
     }
