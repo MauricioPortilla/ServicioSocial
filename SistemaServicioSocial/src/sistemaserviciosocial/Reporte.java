@@ -29,19 +29,33 @@ public class Reporte {
     private LocalDate fechaEntrega;
     private String estado;
     private String motivoInvalidez = null;
-    private int idHistorial;
-    private int idEntrega;
+    private HistorialAlumnoSS historialAlumno;
+    private FechaEntregaReporte fechaEntregaReporte;
+    private Archivo archivoReporte;
 
     /**
-     *
-     * @param numero numero de reporte
-     * @param horasReportadas numero de horas reportadas
-     * @param mes mes de reporte
-     * @param fechaEntrega fecha de entrega de reporte
-     * @param estado estado en el que se enuentra el reporte
-     * @param motivoInvalidez motivo de invalidez del reporte
+     * Crea una instancia vacía.
      */
-    public Reporte(int id, int numero, int horasReportadas, String mes, LocalDate fechaEntrega, String estado, String motivoInvalidez, int idHistorial, int idEntrega) {
+    public Reporte() {
+    }
+
+    /**
+     * 
+     * @param id
+     * @param numero
+     * @param horasReportadas
+     * @param mes
+     * @param fechaEntrega
+     * @param estado
+     * @param historialAlumno
+     * @param fechaEntregaReporte
+     * @param archivoReporte
+     */
+    public Reporte(
+        int id, int numero, int horasReportadas, String mes, LocalDate fechaEntrega, 
+        String estado, String motivoInvalidez, HistorialAlumnoSS historialAlumno, 
+        FechaEntregaReporte fechaEntregaReporte, Archivo archivoReporte
+    ) {
         this.id = id;
         this.numero = numero;
         this.horasReportadas = horasReportadas;
@@ -49,81 +63,113 @@ public class Reporte {
         this.fechaEntrega = fechaEntrega;
         this.estado = estado;
         this.motivoInvalidez = motivoInvalidez;
-        this.idHistorial = idHistorial;
-        this.idEntrega = idEntrega;
+        this.historialAlumno = historialAlumno;
+        this.fechaEntregaReporte = fechaEntregaReporte;
+        this.archivoReporte = archivoReporte;
+    }
 
+    /**
+     * Indica si el reporte tiene datos cargados.
+     * 
+     * @return <code>true</code> si el identificador es mayor a cero; <code>false</code> si no
+     */
+    public boolean isLoaded() {
+        return (id > 0);
+    }
+
+    /**
+     * Guarda el reporte en la base de datos.
+     * 
+     * @return <code>true</code> si se guardó correctamente; <code>false</code> si no
+     */
+    public boolean guardar() {
+        IReporteDAO reporteDAO = new ReporteDAO();
+        return (reporteDAO.insertReporte(this));
+    }
+
+    public boolean modificar() {
+        IReporteDAO reporteDAO = new ReporteDAO();
+        return (reporteDAO.updateReporte(this));
     }
 
     public int getId() {
         return id;
     }
 
-    public int getNumero() {
-        return numero;
-    }
-
-    public int getHorasReportadas() {
-        return horasReportadas;
-    }
-
-    public String getMes() {
-        return mes;
-    }
-
-    public LocalDate getFechaEntrega() {
-        return fechaEntrega;
-    }
-
-    public String getEstado() {
-        return estado;
-    }
-
-    public String getMotivoInvalidez() {
-        return motivoInvalidez;
-    }
-
-    public int getIdHistorial() {
-        return idHistorial;
-    }
-
-    public int getIdEntrega() {
-        return idEntrega;
-    }
-
     public void setId(int id) {
         this.id = id;
+    }
+
+    public int getNumero() {
+        return numero;
     }
 
     public void setNumero(int numero) {
         this.numero = numero;
     }
 
+    public int getHorasReportadas() {
+        return horasReportadas;
+    }
+
     public void setHorasReportadas(int horasReportadas) {
         this.horasReportadas = horasReportadas;
+    }
+
+    public String getMes() {
+        return mes;
     }
 
     public void setMes(String mes) {
         this.mes = mes;
     }
 
+    public LocalDate getFechaEntrega() {
+        return fechaEntrega;
+    }
+
     public void setFechaEntrega(LocalDate fechaEntrega) {
         this.fechaEntrega = fechaEntrega;
+    }
+
+    public String getEstado() {
+        return estado;
     }
 
     public void setEstado(String estado) {
         this.estado = estado;
     }
 
+    public String getMotivoInvalidez() {
+        return motivoInvalidez;
+    }
+
     public void setMotivoInvalidez(String motivoInvalidez) {
         this.motivoInvalidez = motivoInvalidez;
     }
 
-    public void setIdHistorial(int idHistorial) {
-        this.idHistorial = idHistorial;
+    public HistorialAlumnoSS getHistorialAlumno() {
+        return historialAlumno;
     }
 
-    public void setIdEntrega(int idEntrega) {
-        this.idEntrega = idEntrega;
+    public void setHistorialAlumno(HistorialAlumnoSS historialAlumno) {
+        this.historialAlumno = historialAlumno;
+    }
+
+    public FechaEntregaReporte getFechaEntregaReporte() {
+        return fechaEntregaReporte;
+    }
+
+    public void setFechaEntregaReporte(FechaEntregaReporte fechaEntregaReporte) {
+        this.fechaEntregaReporte = fechaEntregaReporte;
+    }
+
+    public Archivo getArchivoReporte() {
+        return archivoReporte;
+    }
+
+    public void setArchivoReporte(Archivo archivoReporte) {
+        this.archivoReporte = archivoReporte;
     }
 
 }

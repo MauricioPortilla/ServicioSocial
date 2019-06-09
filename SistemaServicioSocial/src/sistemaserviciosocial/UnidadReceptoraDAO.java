@@ -18,8 +18,12 @@ import sistemaserviciosocial.engine.SQL;
 import sistemaserviciosocial.engine.SQLRow;
 
 /**
- *
- * @author Mauricio
+ * UnidadReceptoraDAO es la clase que maneja la información de las unidades
+ * receptoras registrados en la base de datos.
+ * 
+ * @author Mauricio Cruz Portilla
+ * @version 1.0
+ * @since 2019/06/08
  */
 public class UnidadReceptoraDAO implements IUnidadReceptoraDAO {
 

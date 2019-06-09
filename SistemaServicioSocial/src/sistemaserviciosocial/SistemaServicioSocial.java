@@ -34,10 +34,10 @@ public class SistemaServicioSocial extends Application {
 		Parent root = FXMLLoader.load(
 			getClass().getResource("interfaz/FXMLSistemaServicioSocial.fxml")
 		);
-		
 		Scene scene = new Scene(root);
-		
+
 		stage.setScene(scene);
+		stage.setTitle("Sistema de Servicio Social");
 		stage.show();
 	}
 

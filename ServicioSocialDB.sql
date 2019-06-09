@@ -58,21 +58,6 @@ CREATE TABLE fechaEntregaReporte (
     mes varchar(10) NOT NULL
 );
 
-CREATE TABLE reporte (
-    idreporte int PRIMARY KEY NOT NULL AUTO_INCREMENT,
-    idhistorial int NOT NULL,
-    FOREIGN KEY (idhistorial) REFERENCES historialAlumnoSS(idhistorial),
-    identrega int NOT NULL,
-    FOREIGN KEY (identrega) REFERENCES fechaEntregaReporte(identrega),
-    numero int NOT NULL,
-    horasReportadas int NOT NULL,
-    actividades varchar(255) NOT NULL,
-    mes varchar(10) NOT NULL,
-    fechaEntrega date NOT NULL,
-    estado varchar(20) NOT NULL,
-    motivoInvalidez varchar(100) NULL
-);
-
 CREATE TABLE archivo (
     idarchivo int PRIMARY KEY NOT NULL AUTO_INCREMENT,
     idhistorial int NOT NULL,
@@ -81,6 +66,22 @@ CREATE TABLE archivo (
     rutaUbicacion varchar(255) NOT NULL,
     estado varchar(20) NOT NULL,
     motivoInvalidez varchar(100) NULL
+);
+
+CREATE TABLE reporte (
+    idreporte int PRIMARY KEY NOT NULL AUTO_INCREMENT,
+    idhistorial int NOT NULL,
+    FOREIGN KEY (idhistorial) REFERENCES historialAlumnoSS(idhistorial),
+    identrega int NOT NULL,
+    FOREIGN KEY (identrega) REFERENCES fechaEntregaReporte(identrega),
+    numero int NOT NULL,
+    horasReportadas int NOT NULL,
+    mes varchar(10) NOT NULL,
+    fechaEntrega date NOT NULL,
+    estado varchar(20) NOT NULL,
+    motivoInvalidez varchar(100) NULL,
+    idarchivo int NOT NULL,
+    FOREIGN KEY (idarchivo) REFERENCES archivo(idarchivo)
 );
 
 CREATE TABLE solicitud (
@@ -139,3 +140,26 @@ CREATE TABLE solicitudSeleccionada (
     idsolicitud int NOT NULL,
     FOREIGN KEY (idsolicitud) REFERENCES solicitud(idsolicitud)
 );
+
+DELIMITER //
+CREATE TRIGGER onInsertReporte AFTER INSERT ON reporte FOR EACH ROW
+BEGIN
+    UPDATE historialAlumnoSS SET 
+        numReportesEntregados = numReportesEntregados + 1, 
+        horasAcumuladas = horasAcumuladas + NEW.horasReportadas 
+    WHERE idhistorial = NEW.idhistorial;
+END //
+
+DELIMITER //
+CREATE TRIGGER onUpdateReporte AFTER UPDATE ON reporte FOR EACH ROW
+BEGIN
+    IF (OLD.horasReportadas - NEW.horasReportadas) > 0 THEN
+        UPDATE historialAlumnoSS SET
+            horasAcumuladas = horasAcumuladas - (OLD.horasReportadas - NEW.horasReportadas)
+        WHERE idhistorial = OLD.idhistorial;
+    ELSE
+        UPDATE historialAlumnoSS SET
+            horasAcumuladas = horasAcumuladas + (NEW.horasReportadas - OLD.horasReportadas)
+        WHERE idhistorial = OLD.idhistorial;
+    END IF;
+END //

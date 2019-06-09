@@ -13,8 +13,12 @@
 package sistemaserviciosocial;
 
 /**
+ * ResponsableProyecto es la clase que contiene la información de un responsable
+ * de un proyecto registrado.
  *
- * @author Mauricio
+ * @author Mauricio Cruz Portilla
+ * @version 1.0
+ * @since 2019/06/08
  */
 public class ResponsableProyecto {
 

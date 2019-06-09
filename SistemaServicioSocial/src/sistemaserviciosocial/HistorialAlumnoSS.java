@@ -31,6 +31,8 @@ public class HistorialAlumnoSS {
     private Inscripcion inscripcion;
     private Solicitud solicitudAsignada = null;
     private ArrayList<Solicitud> solicitudesSeleccionadas = new ArrayList<>();
+    private ArrayList<Reporte> reportes = new ArrayList<>();
+    private ArrayList<Archivo> archivos = new ArrayList<>();
 
     /**
      * Crea una instacia vacía.
@@ -59,6 +61,8 @@ public class HistorialAlumnoSS {
         this.numReportesEntregados = numReportesEntregados;
         this.inscripcion = inscripcion;
         initSolicitudes();
+        initReportes();
+        initArchivos();
     }
 
     /**
@@ -80,6 +84,8 @@ public class HistorialAlumnoSS {
         this.numReportesEntregados = historialAux.numReportesEntregados;
         this.inscripcion = historialAux.inscripcion;
         initSolicitudes();
+        initReportes();
+        initArchivos();
     }
 
     /**
@@ -91,6 +97,24 @@ public class HistorialAlumnoSS {
             this.solicitudAsignada = new SolicitudAsignadaDAO().getSolicitudAsignada(this);
             this.solicitudesSeleccionadas = 
                 new SolicitudSeleccionadaDAO().getSolicitudesSeleccionadas(this);
+        }
+    }
+
+    /**
+     * Asigna al historial los reportes del alumno desde la base de datos.
+     */
+    public void initReportes() {
+        if (id > 0) {
+            // TODO: REPORTES
+        }
+    }
+
+    /**
+     * Asigna al historial los archivos del alumno desde la base de datos.
+     */
+    public void initArchivos() {
+        if (id > 0) {
+            this.archivos = new ArchivoDAO().getArchivos(this);
         }
     }
 
@@ -237,6 +261,24 @@ public class HistorialAlumnoSS {
      */
     public void setSolicitudesSeleccionadas(ArrayList<Solicitud> solicitudes) {
         this.solicitudesSeleccionadas = solicitudes;
+    }
+
+    /**
+     * Retorna los archivos de este historial.
+     * 
+     * @return lista de archivos
+     */
+    public ArrayList<Archivo> getArchivos() {
+        return archivos;
+    }
+
+    /**
+     * Establece los archivos de este historial.
+     * 
+     * @param archivos archivos
+     */
+    public void setArchivos(ArrayList<Archivo> archivos) {
+        this.archivos = archivos;
     }
     
 }

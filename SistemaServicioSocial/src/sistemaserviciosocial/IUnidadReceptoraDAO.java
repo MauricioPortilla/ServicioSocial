@@ -13,8 +13,12 @@
 package sistemaserviciosocial;
 
 /**
- *
- * @author Mauricio
+ * IUnidadReceptoraDAO es la interfaz que maneja la información de las
+ * UnidadReceptora en la base de datos.
+ * 
+ * @author Mauricio Cruz Portilla
+ * @version 1.0
+ * @since 2019/06/08
  */
 public interface IUnidadReceptoraDAO {
     

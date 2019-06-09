@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.collections.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="346.0" prefWidth="375.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2" fx:controller="sistemaserviciosocial.controlador.FXMLRegistrarReporteMensualFormularioController">
+  <children>
+    <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#dfdfdf" height="346.0" layoutX="0.0" layoutY="0.0" stroke="BLACK" strokeType="INSIDE" width="375.0" />
+    <TextField fx:id="horasReportadasTextField" layoutX="33.0" layoutY="121.0" prefWidth="309.0" />
+    <Label layoutX="33.0" layoutY="102.0" text="Horas reportadas">
+      <font>
+        <Font size="14.0" fx:id="x1" />
+      </font>
+    </Label>
+    <Label font="$x1" layoutX="33.0" layoutY="165.0" text="Mes del reporte" />
+    <ComboBox fx:id="mesComboBox" layoutX="33.0" layoutY="184.0" prefHeight="21.0" prefWidth="309.0">
+      <items>
+        <FXCollections fx:factory="observableArrayList">
+          <String fx:value="Item 1" />
+          <String fx:value="Item 2" />
+          <String fx:value="Item 3" />
+        </FXCollections>
+      </items>
+    </ComboBox>
+    <Button id="aceptarButton" fx:id="registrarButton" layoutX="112.0" layoutY="309.0" mnemonicParsing="false" text="Registrar" />
+    <Button fx:id="cancelarButton" layoutX="196.0" layoutY="309.0" mnemonicParsing="false" text="Cancelar" />
+    <Label layoutX="37.0" layoutY="29.0" text="Registrar Reporte Mensual">
+      <font>
+        <Font size="26.0" />
+      </font>
+    </Label>
+  </children>
+</AnchorPane>

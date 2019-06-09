@@ -20,13 +20,69 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
+import sistemaserviciosocial.controlador.FXMLAsignarServicioSocialController;
+import sistemaserviciosocial.controlador.FXMLModificarReporteController;
+import sistemaserviciosocial.controlador.FXMLRegistrarProyectoController;
+import sistemaserviciosocial.controlador.FXMLRegistrarReporteMensualController;
+import sistemaserviciosocial.controlador.FXMLRegistrarReporteMensualFormularioController;
 import sistemaserviciosocial.controlador.FXMLSubirArchivoController;
 
 /**
- *
- * @author Mauricio
+ * WindowManager es la clase que administra el control de las ventanas del sistema.
+ * 
+ * @author Mauricio Cruz Portilla
+ * @version 1.0
+ * @since 2019/06/08
  */
 public class WindowManager {
+
+    /**
+     * Abre una ventana Asignar Servicio Social.
+     * 
+     * @return el controlador de la ventana
+     */
+    public static FXMLAsignarServicioSocialController showAsignarServicioSocialWindow() {
+        try {
+            FXMLLoader loader = new FXMLLoader(WindowManager.class.getResource(
+                "/sistemaserviciosocial/interfaz/FXMLAsignarServicioSocial.fxml"
+            ));
+            Stage stage = new Stage();
+            stage.setScene(new Scene((AnchorPane) loader.load()));
+            stage.setTitle("Asignar servicio social");
+            FXMLAsignarServicioSocialController controller = loader.
+                <FXMLAsignarServicioSocialController>getController();
+            stage.showAndWait();
+            return controller;
+        } catch (IOException e) {
+            new Alert(AlertType.ERROR, "Ocurrió un error al abrir la ventana.").show();
+            e.printStackTrace();
+            return null;
+        }
+    }
+
+    /**
+     * Abre una ventana Registrar Proyecto.
+     * 
+     * @return el controlador de la ventana
+     */
+    public static FXMLRegistrarProyectoController showRegistrarProyectoWindow() {
+        try {
+            FXMLLoader loader = new FXMLLoader(WindowManager.class.getResource(
+                "/sistemaserviciosocial/interfaz/FXMLRegistrarProyecto.fxml"
+            ));
+            Stage stage = new Stage();
+            stage.setScene(new Scene((AnchorPane) loader.load()));
+            stage.setTitle("Registrar proyecto");
+            FXMLRegistrarProyectoController controller = loader.
+                <FXMLRegistrarProyectoController>getController();
+            stage.showAndWait();
+            return controller;
+        } catch (IOException e) {
+            new Alert(AlertType.ERROR, "Ocurrió un error al abrir la ventana.").show();
+            e.printStackTrace();
+            return null;
+        }
+    }
     
     /**
      * Abre una ventana Subir Archivo con datos especificados.
@@ -55,6 +111,88 @@ public class WindowManager {
             return controller;
         } catch (IOException e) {
             new Alert(AlertType.ERROR, "Ocurrió un error al abrir la ventana.").show();
+            return null;
+        }
+    }
+
+    /**
+     * Abre una ventana Registrar Reporte Mensual con datos especificados.
+     * 
+     * @param alumno alumno a utilizar
+     * @param fechaEntrega fecha de entrega del reporte
+     * @return el controlador de la ventana
+     */
+    public static FXMLRegistrarReporteMensualController showRegistrarReporteWindow(Alumno alumno) {
+        try {
+            FXMLLoader loader = new FXMLLoader(WindowManager.class.getResource(
+                "/sistemaserviciosocial/interfaz/FXMLRegistrarReporteMensual.fxml"
+            ));
+            Stage stage = new Stage();
+            stage.setScene(new Scene((AnchorPane) loader.load()));
+            stage.setTitle("Registrar reporte mensual");
+            FXMLRegistrarReporteMensualController controller = loader.
+                <FXMLRegistrarReporteMensualController>getController();
+            controller.initData(alumno);
+            stage.showAndWait();
+            return controller;
+        } catch (IOException e) {
+            new Alert(AlertType.ERROR, "Ocurrió un error al abrir la ventana.").show();
+            e.printStackTrace();
+            return null;
+        }
+    }
+
+    /**
+     * Abre una ventana Registrar Reporte Mensual Formulario con datos especificados.
+     * 
+     * @param alumno alumno a utilizar
+     * @param fechaEntrega fecha de entrega del reporte
+     * @return el controlador de la ventana
+     */
+    public static FXMLRegistrarReporteMensualFormularioController showRegistrarReporteFormWindow(
+        Alumno alumno, FechaEntregaReporte fechaEntrega
+    ) {
+        try {
+            FXMLLoader loader = new FXMLLoader(WindowManager.class.getResource(
+                "/sistemaserviciosocial/interfaz/FXMLRegistrarReporteMensualFormulario.fxml"
+            ));
+            Stage stage = new Stage();
+            stage.setScene(new Scene((AnchorPane) loader.load()));
+            stage.setTitle("Registrar reporte");
+            FXMLRegistrarReporteMensualFormularioController controller = loader.
+                <FXMLRegistrarReporteMensualFormularioController>getController();
+            controller.initData(alumno, fechaEntrega);
+            stage.showAndWait();
+            return controller;
+        } catch (IOException e) {
+            new Alert(AlertType.ERROR, "Ocurrió un error al abrir la ventana.").show();
+            e.printStackTrace();
+            return null;
+        }
+    }
+
+    /**
+     * Abre una ventana Modificar Reporte con datos especificados.
+     * 
+     * @param reporte reporte a modificar
+     * @return el controlador de la ventana
+     */
+    public static FXMLModificarReporteController showModificarReporteWindow(Reporte reporte) {
+        try {
+            FXMLLoader loader = new FXMLLoader(WindowManager.class.getResource(
+                "/sistemaserviciosocial/interfaz/FXMLModificarReporte.fxml"
+            ));
+            Stage stage = new Stage();
+            stage.setScene(new Scene((AnchorPane) loader.load()));
+            stage.setTitle("Modificar reporte");
+            FXMLModificarReporteController controller = loader.
+                <FXMLModificarReporteController>getController();
+            controller.initData(reporte);
+            stage.showAndWait();
+            return controller;
+        } catch (IOException e) {
+            new Alert(AlertType.ERROR, "Ocurrió un error al abrir la ventana.").show();
+            e.printStackTrace();
             return null;
         }
     }

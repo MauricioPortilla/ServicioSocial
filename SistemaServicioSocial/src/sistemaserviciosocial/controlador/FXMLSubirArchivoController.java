@@ -60,10 +60,7 @@ public class FXMLSubirArchivoController {
     @FXML
     private ComboBox<String> tipoArchivoComboBox;
 
-    private Alumno alumno = new Alumno(
-        "S17013001", "Mauricio", "Cruz", "Portilla", "2281020202", 
-        "correoPersonal", "nombreContacto", "correoContacto", "telefonoContacto", 9.1f, "estado"
-    );
+    private Alumno alumno = null;
     private File fileSelected = null;
     private boolean openedAsInclude = false;
     public boolean didFinish = false;
@@ -72,7 +69,6 @@ public class FXMLSubirArchivoController {
     void initialize() {
         rutaArchivoTextField.setDisable(true);
 
-        // Faltan añadir más
         tipoArchivoComboBox.setItems(Utilities.TIPOS_ARCHIVOS);
 
         examinarButton.setOnAction(examinarButtonHandler());
@@ -154,10 +150,11 @@ public class FXMLSubirArchivoController {
                 }
                 Archivo nuevoArchivo = new Archivo(
                     0, alumno.getInscripcion().getHistorial(), nuevoNombreArchivo, 
-                    destinoArchivo.toString(), "No validado", ""
+                    destinoArchivo.toString(), "No validado", null
                 );
                 if (nuevoArchivo.guardar()) {
                     new Alert(AlertType.INFORMATION, "Archivo subido con éxito").showAndWait();
+                    alumno.getInscripcion().getHistorial().initArchivos();
                     if (openedAsInclude) {
                         didFinish = true;
                         ((Stage) subirButton.getScene().getWindow()).close();

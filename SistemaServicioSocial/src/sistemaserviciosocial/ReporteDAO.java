@@ -11,6 +11,7 @@
  */
 package sistemaserviciosocial;
 
+import java.sql.Date;
 /**
  * Clase DAO de Reporte
  *
@@ -20,6 +21,7 @@ package sistemaserviciosocial;
  */
 import java.util.ArrayList;
 import sistemaserviciosocial.engine.SQL;
+import sistemaserviciosocial.engine.SQLRow;
 
 public class ReporteDAO implements IReporteDAO {
 
@@ -32,22 +34,99 @@ public class ReporteDAO implements IReporteDAO {
     }
 
     @Override
+    public Reporte getReporte(FechaEntregaReporte fechaEntregaReporte) {
+        try {
+            Reporte reporte = new Reporte();
+            SQL.executeQuery("SELECT * FROM reporte WHERE identrega = ?", new ArrayList<Object>() {
+                {
+                    add(fechaEntregaReporte.getId());
+                }
+            }, (result) -> {
+                SQLRow row = result.get(0);
+                reporte.setId((int) row.getColumnData("idreporte"));
+                reporte.setHistorialAlumno(
+                    new HistorialAlumnoSS((int) row.getColumnData("idhistorial"))
+                );
+                reporte.setFechaEntregaReporte(fechaEntregaReporte);
+                reporte.setNumero((int) row.getColumnData("numero"));
+                reporte.setHorasReportadas((int) row.getColumnData("horasReportadas"));
+                reporte.setMes(row.getColumnData("mes").toString());
+                reporte.setFechaEntrega(((Date) row.getColumnData("fechaEntrega")).toLocalDate());
+                reporte.setEstado(row.getColumnData("estado").toString());
+                reporte.setMotivoInvalidez((row.getColumnData("motivoInvalidez") == null) ? null : 
+                    row.getColumnData("motivoInvalidez").toString()
+                );
+                reporte.setArchivoReporte(new Archivo((int) row.getColumnData("idarchivo")));
+                return true;
+            }, () -> {
+                return false;
+            });
+            return reporte;
+        } catch (Exception e) {
+            //TODO: handle exception
+            e.printStackTrace();
+            System.out.println("getReporte Exception -> " + e.getMessage());
+            return null;
+        }
+    }
+
+    @Override
+    public ArrayList<Reporte> getReportes(HistorialAlumnoSS historial) {
+        try {
+            ArrayList<Reporte> reportes = new ArrayList<>();
+            SQL.executeQuery("SELECT * FROM reporte WHERE idhistorial = ?", 
+                new ArrayList<Object>() {
+                {
+                    add(historial.getId());
+                }
+            }, (result) -> {
+                for (SQLRow row : result) {
+                    reportes.add(new Reporte(
+                        (int) row.getColumnData("idreporte"),
+                        (int) row.getColumnData("numero"),
+                        (int) row.getColumnData("horasReportadas"),
+                        row.getColumnData("mes").toString(),
+                        ((Date) row.getColumnData("fechaEntrega")).toLocalDate(),
+                        row.getColumnData("estado").toString(),
+                        row.getColumnData("motivoInvalidez").toString(),
+                        new HistorialAlumnoSS((int) row.getColumnData("idhistorial")),
+                        new FechaEntregaReporte((int) row.getColumnData("identrega")),
+                        new Archivo((int) row.getColumnData("idarchivo"))
+                    ));
+                }
+                return true;
+            }, () -> {
+                return false;
+            });
+            return reportes;
+        } catch (Exception e) {
+            //TODO: handle exception
+            e.printStackTrace();
+            System.out.println("getReporte Exception -> " + e.getMessage());
+            return null;
+        }
+    }
+
+    @Override
     public boolean insertReporte(Reporte reporte) {
         if (SQL.executeUpdate(
-            "INSERT INTO reporte VALUES (NULL, ?, ?, ?, ?, ?, ?, ?, ?)",
+            "INSERT INTO reporte VALUES (NULL, ?, ?, ?, ?, ?, ?, ?, ?, ?)",
             new ArrayList<Object>() {
             {
+                add(reporte.getHistorialAlumno().getId());
+                add(reporte.getFechaEntregaReporte().getId());
                 add(reporte.getNumero());
                 add(reporte.getHorasReportadas());
                 add(reporte.getMes());
                 add(reporte.getFechaEntrega());
                 add(reporte.getEstado());
                 add(reporte.getMotivoInvalidez());
-                add(reporte.getIdHistorial());
-                add(reporte.getIdEntrega());
+                add(reporte.getArchivoReporte().getId());
             }
-        }
-        ) == 1) { // 1 indica que hay 1 fila afectada
+        }) == 1) { // 1 indica que hay 1 fila afectada
+            reporte.getHistorialAlumno().setNumReportesEntregados(
+                reporte.getHistorialAlumno().getNumReportesEntregados() + 1
+            );
             return true;
         }
         return false;
@@ -56,22 +135,16 @@ public class ReporteDAO implements IReporteDAO {
     @Override
     public boolean updateReporte(Reporte reporte) {
         if (SQL.executeUpdate(
-            "UPDATE reporte SET numero = ?, horasReportadas = ?, mes = ?, fechaEntrega = ?, "
-            + "estado = ?, motivoInvalidez = ? WHERE idReporte = ?",
+            "UPDATE reporte SET horasReportadas = ?, estado = ?, motivoInvalidez = ? "
+            + "WHERE idReporte = ?",
             new ArrayList<Object>() {
             {
-                add(reporte.getNumero());
                 add(reporte.getHorasReportadas());
-                add(reporte.getMes());
-                add(reporte.getFechaEntrega());
                 add(reporte.getEstado());
                 add(reporte.getMotivoInvalidez());
-                add(reporte.getIdHistorial());
-                add(reporte.getIdEntrega());
-
+                add(reporte.getId());
             }
-        }
-        ) == 1) { // 1 indica que hay 1 fila afectada
+        }) == 1) { // 1 indica que hay 1 fila afectada
             return true;
         }
         return false;
