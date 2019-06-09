@@ -8,7 +8,9 @@
 
 <AnchorPane id="AnchorPane" prefHeight="392.0" prefWidth="532.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2" fx:controller="sistemaserviciosocial.controlador.FXMLSistemaServicioSocialController">
   <children>
-    <Button fx:id="iniciarSesionButton" layoutX="139.0" layoutY="329.0" mnemonicParsing="false" text="Iniciar sesión" />
-    <Button fx:id="registrarseButton" layoutX="294.0" layoutY="329.0" mnemonicParsing="false" text="Registrarse" />
+    <Button fx:id="iniciarSesionButton" layoutX="222.0" layoutY="50.0" mnemonicParsing="false" text="Iniciar sesión" />
+    <Button fx:id="registrarseButton" layoutX="227.0" layoutY="101.0" mnemonicParsing="false" text="Registrarse" />
+    <Button fx:id="registrarReporteButton" layoutX="188.0" layoutY="150.0" mnemonicParsing="false" text="Registrar reporte mensual" />
+    <Button fx:id="subirArchivoButton" layoutX="239.0" layoutY="196.0" mnemonicParsing="false" text="Subir archivo" />
   </children>
 </AnchorPane>

@@ -47,10 +47,14 @@ public class FXMLSistemaServicioSocialController {
 
 	@FXML
 	private Button registrarseButton;
+    
+    @FXML private Button registrarReporteButton;
+
 
 	@FXML
 	void initialize() {
 		iniciarSesionButton.setOnAction(iniciarSesionButtonHandler());
+        registrarReporteButton.setOnAction(registrarReporteButtonHandler());
 	}
 
 	/**
@@ -69,6 +73,34 @@ public class FXMLSistemaServicioSocialController {
 					Stage stage = new Stage();
 					stage.setScene(new Scene((AnchorPane) loader.load()));
 					stage.setTitle("Asignar servicio social");
+					stage.show();
+				} catch (IOException e) {
+					new Alert(AlertType.ERROR, "Ocurrió un error al abrir la ventana.").show();
+					System.out.println(e.getMessage());
+					System.out.println(e.getCause());
+				}
+			}
+		};
+	}
+    
+
+    
+    /**
+	 * Maneja el botón de Iniciar Sesión.
+	 * 
+	 * @return el evento del botón
+	 */
+	private EventHandler<ActionEvent> registrarReporteButtonHandler() {
+		return new EventHandler<ActionEvent>() {
+			@Override
+			public void handle(ActionEvent event) {
+				try {
+					FXMLLoader loader = new FXMLLoader(getClass().getResource(
+						"/sistemaserviciosocial/interfaz/FXMLRegistrarReporteMensual.fxml"
+					));
+					Stage stage = new Stage();
+					stage.setScene(new Scene((AnchorPane) loader.load()));
+					stage.setTitle("Registrar reporte mensual");
 					stage.show();
 				} catch (IOException e) {
 					new Alert(AlertType.ERROR, "Ocurrió un error al abrir la ventana.").show();

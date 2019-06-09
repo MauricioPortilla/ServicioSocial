@@ -14,11 +14,14 @@ package sistemaserviciosocial.controlador;
 
 import java.net.URL;
 import java.util.ResourceBundle;
+import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextField;
+import javafx.stage.Stage;
 
 /**
  * Clase que lleva el control de la ventana FXMLRegistrarReporteMensualVentana2
@@ -34,11 +37,25 @@ public class FXMLRegistrarReporteMensualVentana2Controller implements Initializa
   @FXML private TextField horasReportadasTextField;
   @FXML private ComboBox mesComboBox;
   @FXML private Button aceptarButton;
-  @FXML private Button cancelar;
+  @FXML private Button cancelarButton;
+  
+  
+  /**
+   * Evento que cierra la ventana
+   * @return el evento del bottón
+   */
+    private EventHandler<ActionEvent> cancelarButtonHandler() {
+        return new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent event) {
+                ((Stage) cancelarButton.getScene().getWindow()).close();
+            }
+        };
+    }
   
   @Override
   public void initialize(URL url, ResourceBundle rb) {
-    // TODO
+    cancelarButton.setOnAction(cancelarButtonHandler());
   }  
   
 }
