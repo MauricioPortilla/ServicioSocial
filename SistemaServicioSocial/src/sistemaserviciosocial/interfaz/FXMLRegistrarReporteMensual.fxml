@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2" fx:controller="sistemaserviciosocial.controlador.FXMLRegistrarReporteMensualController">
+  <children>
+    <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#dfdfdf" height="400.0" layoutX="0.0" layoutY="0.0" stroke="BLACK" strokeType="INSIDE" width="600.0" />
+    <TableView fx:id="reportesTableView" layoutX="31.0" layoutY="93.0" prefHeight="214.0" prefWidth="520.0">
+      <columns>
+        <TableColumn maxWidth="5000.0" minWidth="10.0" prefWidth="266.0" text="Reporte" fx:id="reporteTableColumn" />
+        <TableColumn maxWidth="5000.0" minWidth="10.0" prefWidth="122.0" text="Fecha de entrega" fx:id="fechaEntregaTableColumn" />
+        <TableColumn maxWidth="5000.0" minWidth="10.0" prefWidth="127.0" text="Inicio del servicio" fx:id="fechaInicioTableColumn" />
+      </columns>
+    </TableView>
+    <Button fx:id="cancelarButton" layoutX="473.0" layoutY="324.0" mnemonicParsing="false" text="Cancelar" />
+    <Button fx:id="editarButton" layoutX="385.0" layoutY="325.0" mnemonicParsing="false" prefWidth="66.0" text="Editar" />
+    <Label layoutX="148.0" layoutY="31.0" text="Registrar Reporte Mensual">
+      <font>
+        <Font size="26.0" />
+      </font>
+    </Label>
+  </children>
+</AnchorPane>
