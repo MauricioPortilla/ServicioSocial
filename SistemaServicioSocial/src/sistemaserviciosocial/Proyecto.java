@@ -11,16 +11,17 @@
  */
 package sistemaserviciosocial;
 
+import java.time.LocalDate;
+
 /**
- * Clase Proyecto
+ * Proyecto es la clase que lleva la información de un proyecto registrado.
  *
  * @author Bruno Antonio López Luján
  * @author María Saarayim González Hernández
+ * @author Mauricio Cruz Portilla
  * @version 1.0
  * @since 2019/05/30
  */
-import java.time.LocalDate;
-
 public class Proyecto {
 
     private int id;
@@ -33,6 +34,25 @@ public class Proyecto {
     private Solicitud solicitudBase;
     private ResponsableProyecto responsableProyecto;
 
+    /**
+     * Crea una instancia vacía.
+     */
+    public Proyecto() {
+    }
+
+    /**
+     * Crea una instancia con base en datos predefinidos.
+     * 
+     * @param id identificador del proyecto
+     * @param solicitudBase solicitud base del proyecto
+     * @param responsableProyecto responsable del proyecto
+     * @param nombre nombre del proyecto
+     * @param descripcion descripcion del proyecto
+     * @param horarioAlumno horario del proyecto
+     * @param numAlumnos numero de alumnos del proyecto
+     * @param actividades actividades del proyecto
+     * @param fechaRegistro fecha de registro del proyecto
+     */
     public Proyecto(
         int id, Solicitud solicitudBase, ResponsableProyecto responsableProyecto, String nombre, 
         String descripcion, String horarioAlumno, int numAlumnos, String actividades, 
@@ -50,6 +70,25 @@ public class Proyecto {
     }
 
     /**
+     * Crea una instancia con base en un identificador de la base de datos.
+     * 
+     * @param id identificador del proyecto
+     */
+    public Proyecto(int id) {
+        this.id = id;
+        IProyectoDAO proyectoDAO = new ProyectoDAO();
+        Proyecto proyectoAux = proyectoDAO.getProyecto(id);
+        this.solicitudBase = proyectoAux.solicitudBase;
+        this.responsableProyecto = proyectoAux.responsableProyecto;
+        this.nombre = proyectoAux.nombre;
+        this.descripcion = proyectoAux.descripcion;
+        this.horarioAlumno = proyectoAux.horarioAlumno;
+        this.numAlumnos = proyectoAux.numAlumnos;
+        this.actividades = proyectoAux.actividades;
+        this.fechaRegistro = proyectoAux.fechaRegistro;
+    }
+
+    /**
      * Guarda el proyecto en la base de datos.
      * 
      * @return <code>true</code> si se guardó correctamente; <code>false</code> si no
@@ -61,6 +100,7 @@ public class Proyecto {
 
     /**
      * Regresa el nombre del proyecto
+     * 
      * @return nombre
      */
     public String getNombre() {
@@ -69,6 +109,7 @@ public class Proyecto {
 
     /**
      * Regresa la descripción del proyecto
+     * 
      * @return descripción
      */
     public String getDescripcion() {
@@ -77,6 +118,7 @@ public class Proyecto {
 
     /**
      * Regresa el horario del alumno
+     * 
      * @return horario del alumno
      */
     public String getHorarioAlumno() {
@@ -85,6 +127,7 @@ public class Proyecto {
 
     /**
      * Regresa el número de alumnos
+     * 
      * @return numero de alumnos
      */
     public int getNumAlumnos() {
@@ -93,6 +136,7 @@ public class Proyecto {
 
     /**
      * Regresa las actividades del proyecto
+     * 
      * @return actividades
      */
     public String getActividades() {
@@ -101,6 +145,7 @@ public class Proyecto {
 
     /**
      * Regresa la fecha de registro del proyecto
+     * 
      * @return fecha de registro
      */
     public LocalDate getFechaRegistro() {
@@ -109,6 +154,7 @@ public class Proyecto {
 
     /**
      * Establece el nombre del proyecto
+     * 
      * @param nombre nombre del proyecto
      */
     public void setNombre(String nombre) {
@@ -117,6 +163,7 @@ public class Proyecto {
 
     /**
      * Establece la descripción del proyecto
+     * 
      * @param descripcion descripción del proyecto
      */
     public void setDescripcion(String descripcion) {
@@ -125,6 +172,7 @@ public class Proyecto {
 
     /**
      * Establece el horario del alumno
+     * 
      * @param horarioAlumno horario del alumno
      */
     public void setHorarioAlumno(String horarioAlumno) {
@@ -133,6 +181,7 @@ public class Proyecto {
 
     /**
      * Establece el número de alumnos
+     * 
      * @param numAlumnos número de alumnos
      */
     public void setNumAlumnos(int numAlumnos) {
@@ -141,6 +190,7 @@ public class Proyecto {
 
     /**
      * Establece las actividades del proyecto
+     * 
      * @param actividades actividades del proyecto
      */
     public void setActividades(String actividades) {
@@ -149,6 +199,7 @@ public class Proyecto {
 
     /**
      * Establece la fecha de registro del proyecto
+     * 
      * @param fechaRegistro fecha de registro del proyecto
      */
     public void setFechaRegistro(LocalDate fechaRegistro) {
@@ -157,6 +208,7 @@ public class Proyecto {
 
     /**
      * Regresa el id del proyecto
+     * 
      * @return id del proyecto
      */
     public int getId() {
@@ -165,6 +217,7 @@ public class Proyecto {
 
     /**
      * Establece el id del proyecto
+     * 
      * @param id id del proyecto
      */
     public void setId(int id) {
@@ -173,6 +226,7 @@ public class Proyecto {
 
     /**
      * Regresa la solicitud del proyecto
+     * 
      * @return solicitud
      */
     public Solicitud getSolicitudBase() {
@@ -181,6 +235,7 @@ public class Proyecto {
 
     /**
      * Establece la solicitud del proyecto
+     * 
      * @param solicitudBase solicitud
      */
     public void setSolicitudBase(Solicitud solicitudBase) {
@@ -189,6 +244,7 @@ public class Proyecto {
 
     /**
      * Regresa el responsable del proyecto
+     * 
      * @return responsable de proyecto
      */
     public ResponsableProyecto getResponsableProyecto() {
@@ -197,12 +253,11 @@ public class Proyecto {
 
     /**
      * Establece un responsable de proyecto
+     * 
      * @param responsableProyecto responsable de proyecto
      */
     public void setResponsableProyecto(ResponsableProyecto responsableProyecto) {
         this.responsableProyecto = responsableProyecto;
     }
     
-    
-
 }

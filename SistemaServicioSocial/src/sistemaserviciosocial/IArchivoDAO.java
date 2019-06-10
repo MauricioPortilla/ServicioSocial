@@ -14,7 +14,7 @@ package sistemaserviciosocial;
 import java.util.ArrayList;
 
 /**
- * Interfaz de Archivo
+ * IArchivoDAO es la interfaz que maneja los Archivos registrados en la base de datos.
  *
  * @author María Saarayim González Hernández
  * @author Mauricio Cruz Portilla

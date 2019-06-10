@@ -9,7 +9,6 @@
  * 			López Lujan Bruno Antonio
  * Fecha de creación: Mayo, 2019
  */
-
 package sistemaserviciosocial;
 
 /**
@@ -29,17 +28,17 @@ public class ResponsableProyecto {
     private String materno = null;
     private String correo;
     private String telefono;
-    
-    /**
-     * 
-     * @param id
-     * @param nombre
-     * @param paterno
-     * @param materno
-     * @param correo
-     * @param telefono 
-     */
 
+    /**
+     * Crea una instancia con base en datos predefinidos.
+     * 
+     * @param id identificador del responsable
+     * @param nombre nombre del responsable
+     * @param paterno apellido paterno del responsable
+     * @param materno apellido materno del responsable
+     * @param correo correo del responsable
+     * @param telefono telefono del responsable
+     */
     public ResponsableProyecto(
         int id, String nombre, String paterno, String materno, String correo, String telefono
     ) {
@@ -50,110 +49,120 @@ public class ResponsableProyecto {
         this.correo = correo;
         this.telefono = telefono;
     }
-    /**
-     * Establece un id de responsable de proyecto
-     * @param id id de responsable de proyecto
-     */
 
+    /**
+     * Crea una instancia con base en su identificador de la base de datos.
+     * 
+     * @param id identificador del responsable
+     */
+    public ResponsableProyecto(int id) {
+        this.id = id;
+    }
+
+    /**
+     * Establece un identificador.
+     * 
+     * @param id identificador del responsable
+     */
     public void setId(int id) {
         this.id = id;
     }
-    
-    /**
-     * Regresa el id del responsable del proyecto
-     * @return id de responsable del proyecto
-     */
 
+    /**
+     * Retorna el identificador del responsable.
+     * 
+     * @return el identificador del responsable
+     */
     public int getId() {
         return id;
     }
-    
-    /**
-     * Regresa el nombre del responsable del proyecto
-     * @return nombre del responsable del proyecto
-     */
 
+    /**
+     * Retorna el nombre del responsable.
+     * 
+     * @return el nombre del responsable
+     */
     public String getNombre() {
         return nombre;
     }
-    
-    /**
-     * Establece un nombre a responsable del proyecto
-     * @param nombre nombre del responsable del proyecto
-     */
 
+    /**
+     * Establece un nombre.
+     * 
+     * @param nombre nombre del responsable
+     */
     public void setNombre(String nombre) {
         this.nombre = nombre;
     }
-    
-    /**
-     * Regresa el paterno de responsable del proyecto
-     * @return paterno de responsable del proyecto
-     */
 
+    /**
+     * Retorna el apellido paterno del responsable.
+     * 
+     * @return el apellido paterno del responsable
+     */
     public String getPaterno() {
         return paterno;
     }
-    
-    /**
-     * Establece un paterno para el responsable del proyecto
-     * @param paterno paterno de responsable de proyecto
-     */
 
+    /**
+     * Establece un apellido paterno.
+     * 
+     * @param paterno apellido paterno del responsable
+     */
     public void setPaterno(String paterno) {
         this.paterno = paterno;
     }
-    
-    /**
-     * Regresa el materno de responsable del proyecto
-     * @return materno de responsable del proyecto
-     */
 
+    /**
+     * Retorna el apellido materno del responsable.
+     * 
+     * @return el apellido materno del responsable
+     */
     public String getMaterno() {
         return materno;
     }
-    
-    /**
-     * Establece el materno de responsable del proyecto
-     * @param materno materno de responsable del proyecto
-     */
 
+    /**
+     * Establece un apellido materno.
+     * 
+     * @param materno apellido materno del responsable
+     */
     public void setMaterno(String materno) {
         this.materno = materno;
     }
-    
-    /**
-     * Regresa el correo de responsable del proyecto
-     * @return correo de responsable del proyecto
-     */
 
+    /**
+     * Retorna el correo del responsable.
+     * 
+     * @return el correo del responsable
+     */
     public String getCorreo() {
         return correo;
     }
-    
-    /**
-     * Establece un correo para responsable del proyecto
-     * @param correo correo de responsable de proyecto
-     */
 
+    /**
+     * Establece un correo.
+     * 
+     * @param correo correo del responsable
+     */
     public void setCorreo(String correo) {
         this.correo = correo;
     }
-    
-    /**
-     * Regresa el telefino de responsable del proyecto
-     * @return telefono de responsable del proyecto
-     */
 
+    /**
+     * Retorna el telefono del responsable.
+     * 
+     * @return el telefono del responsable
+     */
     public String getTelefono() {
         return telefono;
     }
-    
-    /**
-     * Establece un telefono para el responsable del proyecto
-     * @param telefono telefono de responsable de proyecto
-     */
 
+    /**
+     * Establece un telefono.
+     * 
+     * @param telefono telefono del responsable
+     */
     public void setTelefono(String telefono) {
         this.telefono = telefono;
     }

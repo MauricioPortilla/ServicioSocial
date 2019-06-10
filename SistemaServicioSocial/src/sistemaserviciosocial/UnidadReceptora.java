@@ -210,5 +210,4 @@ public class UnidadReceptora {
         return nombre;
     }
     
-    
 }

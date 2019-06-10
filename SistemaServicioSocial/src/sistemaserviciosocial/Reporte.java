@@ -16,6 +16,7 @@ package sistemaserviciosocial;
  *
  * @author Maria Jose Hernandez Molinos
  * @author María Saarayim González Hernández
+ * @author Mauricio Cruz Portilla
  * @version 1.0
  * @since 2019/05/28
  */
@@ -41,16 +42,17 @@ public class Reporte {
     }
 
     /**
+     * Crea una instancia con base en datos predefinidos.
      * 
-     * @param id
-     * @param numero
-     * @param horasReportadas
-     * @param mes
-     * @param fechaEntrega
-     * @param estado
-     * @param historialAlumno
-     * @param fechaEntregaReporte
-     * @param archivoReporte
+     * @param id identificador del reporte
+     * @param numero numero del reporte
+     * @param horasReportadas horas reportadas del reporte
+     * @param mes mes del reporte
+     * @param fechaEntrega fecha de entrega del reporte
+     * @param estado estado del reporte
+     * @param historialAlumno historial asociado al reporte
+     * @param fechaEntregaReporte fecha de entrega asociada al reporte
+     * @param archivoReporte archivo asociado al reporte
      */
     public Reporte(
         int id, int numero, int horasReportadas, String mes, LocalDate fechaEntrega, 
@@ -90,6 +92,7 @@ public class Reporte {
 
     /**
      * Modifica un reporte
+     * 
      * @return reporte modificado
      */
     public boolean modificar() {
@@ -99,6 +102,7 @@ public class Reporte {
 
     /**
      * Regresa el id del reporte
+     * 
      * @return id de reporte
      */
     public int getId() {
@@ -107,6 +111,7 @@ public class Reporte {
 
     /**
      * Establece un id de reporte
+     * 
      * @param id id de reporte
      */
     public void setId(int id) {
@@ -115,6 +120,7 @@ public class Reporte {
 
     /**
      * Regresa el número de reporte
+     * 
      * @return número de reporte
      */
     public int getNumero() {
@@ -123,6 +129,7 @@ public class Reporte {
 
     /**
      * Establece el número de reporte
+     * 
      * @param numero número de reporte
      */
     public void setNumero(int numero) {
@@ -131,6 +138,7 @@ public class Reporte {
 
     /**
      * Regresa las horas reportadas
+     * 
      * @return horas reportadas
      */
     public int getHorasReportadas() {
@@ -139,6 +147,7 @@ public class Reporte {
 
     /**
      * Establece las horas reportadas
+     * 
      * @param horasReportadas horas reportadas
      */
     public void setHorasReportadas(int horasReportadas) {
@@ -147,6 +156,7 @@ public class Reporte {
 
     /**
      * Regresa el mes del reporte
+     * 
      * @return mes del reporte
      */
     public String getMes() {
@@ -155,6 +165,7 @@ public class Reporte {
 
     /**
      * Establece el mes de reporte
+     * 
      * @param mes mes de reporte
      */
     public void setMes(String mes) {
@@ -163,6 +174,7 @@ public class Reporte {
 
     /**
      * Regresa la fecha de entrega del reporte
+     * 
      * @return fecha de entrega
      */
     public LocalDate getFechaEntrega() {
@@ -171,6 +183,7 @@ public class Reporte {
 
     /**
      * Establece la fecha de entrega del reporte
+     * 
      * @param fechaEntrega fecha de entrega del reporte
      */
     public void setFechaEntrega(LocalDate fechaEntrega) {
@@ -179,6 +192,7 @@ public class Reporte {
 
     /**
      * Regresa el estado del reporte
+     * 
      * @return estado del reporte
      */
     public String getEstado() {
@@ -187,6 +201,7 @@ public class Reporte {
 
     /**
      * Establece el estado del reporte
+     * 
      * @param estado estado del reporte
      */
     public void setEstado(String estado) {
@@ -195,6 +210,7 @@ public class Reporte {
 
     /**
      * Regresa el motivo de invalidez del reporte
+     * 
      * @return motivo de invalidez del reporte
      */
     public String getMotivoInvalidez() {
@@ -203,6 +219,7 @@ public class Reporte {
 
     /**
      * Establece el motivo de invalidez del reporte
+     * 
      * @param motivoInvalidez motivo de invalidez del reporte
      */
     public void setMotivoInvalidez(String motivoInvalidez) {
@@ -211,6 +228,7 @@ public class Reporte {
     
     /**
      * Regresa el historial del alumno
+     * 
      * @return historial del alumno
      */
     public HistorialAlumnoSS getHistorialAlumno() {
@@ -218,7 +236,8 @@ public class Reporte {
     }
 
     /**
-     * Establece el historial del laumno
+     * Establece el historial del alumno
+     * 
      * @param historialAlumno historial del alumno
      */
     public void setHistorialAlumno(HistorialAlumnoSS historialAlumno) {
@@ -226,7 +245,8 @@ public class Reporte {
     }
 
     /**
-     * Regresa la fehca de entrega del reporte
+     * Regresa la fecha de entrega del reporte
+     * 
      * @return fecha de entrega del reporte
      */
     public FechaEntregaReporte getFechaEntregaReporte() {
@@ -235,6 +255,7 @@ public class Reporte {
 
     /**
      * Establece la fecha de entrega del reporte
+     * 
      * @param fechaEntregaReporte fecha de entrega del reporte
      */
     public void setFechaEntregaReporte(FechaEntregaReporte fechaEntregaReporte) {
@@ -243,6 +264,7 @@ public class Reporte {
 
     /**
      * Regresa el archivo reporte
+     * 
      * @return archivo reporte
      */
     public Archivo getArchivoReporte() {
@@ -251,6 +273,7 @@ public class Reporte {
 
     /**
      * Establece un archivo reporte
+     * 
      * @param archivoReporte archivo reporte
      */
     public void setArchivoReporte(Archivo archivoReporte) {

@@ -22,6 +22,7 @@ import javafx.collections.ObservableList;
  * @since 2019/06/06
  */
 public interface IAlumnoDAO {
+    
     /**
      * Retorna los alumnos registrados en el sistema que posean una inscripción en el servicio
      * social indicado.

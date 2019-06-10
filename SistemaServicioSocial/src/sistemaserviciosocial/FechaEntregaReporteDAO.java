@@ -22,8 +22,12 @@ import sistemaserviciosocial.engine.SQL;
 import sistemaserviciosocial.engine.SQLRow;
 
 /**
- *
- * @author Mauricio
+ * FechaEntregaReporteDAO es la clase que maneja la información de los FechaEntregaReporte en la
+ * base de datos.
+ * 
+ * @author Mauricio Cruz Portilla
+ * @version 1.0
+ * @since 2019/06/08
  */
 public class FechaEntregaReporteDAO implements IFechaEntregaReporteDAO {
 
@@ -54,7 +58,6 @@ public class FechaEntregaReporteDAO implements IFechaEntregaReporteDAO {
         }
     }
 
- 
     @Override
     public FechaEntregaReporte getFechaEntrega(int id) {
         try {

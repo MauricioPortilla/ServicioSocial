@@ -12,19 +12,24 @@
 package sistemaserviciosocial;
 
 import java.sql.Date;
-/**
- * Clase DAO de Reporte
- *
- * @author Maria Jose Hernandez Molinos
- * @version 1.0
- * @since 2019/05/30
- */
+
 import java.util.ArrayList;
 import sistemaserviciosocial.engine.SQL;
 import sistemaserviciosocial.engine.SQLRow;
 
+/**
+ * ReporteDAO es la clase que maneja los Reportes registrados en la base de datos.
+ *
+ * @author Maria Jose Hernandez Molinos
+ * @author Mauricio Cruz Portilla
+ * @version 1.0
+ * @since 2019/05/30
+ */
 public class ReporteDAO implements IReporteDAO {
 
+    /**
+     * Crea una instancia vacía.
+     */
     public ReporteDAO() {
     }
 

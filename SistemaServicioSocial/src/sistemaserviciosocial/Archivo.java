@@ -12,12 +12,12 @@
 package sistemaserviciosocial;
 
 import java.io.File;
-import java.io.IOException;
 
 /**
  * Archivo es la clase que contiene la información de un archivo del Servicio Social
  *
  * @author María Saarayim González Hernández
+ * @author Mauricio Cruz Portilla
  * @version 1.0
  * @since 2019/05/28
  */
@@ -74,6 +74,7 @@ public class Archivo {
 
     /**
      * Crea una instancia con base en un título y un historial de alumno de la base de datos.
+     * 
      * @param titulo título del archivo
      * @param historial historial asociado al archivo
      */
@@ -115,50 +116,110 @@ public class Archivo {
         return false;
     }
 
+    /**
+     * Establece un identificador.
+     * 
+     * @param id identificador nuevo
+     */
     public void setId(int id) {
         this.id = id;
     }
 
+    /**
+     * Retorna el historial asociado al archivo.
+     * 
+     * @return el historial asociado al archivo
+     */
     public HistorialAlumnoSS getHistorial() {
         return historial;
     }
 
+    /**
+     * Establece un historial.
+     * 
+     * @param historial historial nuevo
+     */
     public void setHistorial(HistorialAlumnoSS historial) {
         this.historial = historial;
     }
 
+    /**
+     * Retorna el identificador.
+     * 
+     * @return el identificador
+     */
     public int getId() {
         return id;
     }
 
+    /**
+     * Retorna el titulo.
+     * 
+     * @return el titulo
+     */
     public String getTitulo() {
         return titulo;
     }
 
+    /**
+     * Retorna la ruta de ubicacion.
+     * 
+     * @return la ruta de ubicacion
+     */
     public String getRutaUbicacion() {
         return rutaUbicacion;
     }
 
+    /**
+     * Retorna el estado.
+     * 
+     * @return el estado
+     */
     public String getEstado() {
         return estado;
     }
 
+    /**
+     * Retorna el motivo de invalidez.
+     * 
+     * @return el motivo de invalidez
+     */
     public String getMotivoInvalidez() {
         return motivoInvalidez;
     }
 
+    /**
+     * Establece un titulo.
+     * 
+     * @param titulo titulo nuevo
+     */
     public void setTitulo(String titulo) {
         this.titulo = titulo;
     }
 
+    /**
+     * Establece una ruta de ubicacion.
+     * 
+     * @param rutaUbicacion ruta de ubicacion nuevo
+     */
     public void setRutaUbicacion(String rutaUbicacion) {
         this.rutaUbicacion = rutaUbicacion;
     }
 
+    /**
+     * Establece un estado.
+     * 
+     * @param estado estado nuevo
+     */
     public void setEstado(String estado) {
         this.estado = estado;
     }
 
+    /**
+     * Establece un motivo de invalidez.
+     * 
+     * @param motivoInvalidez motivo de invalidez nuevo
+     */
     public void setMotivoInvalidez(String motivoInvalidez) {
         this.motivoInvalidez = motivoInvalidez;
     }

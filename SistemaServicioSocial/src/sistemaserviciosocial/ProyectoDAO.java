@@ -11,26 +11,62 @@
  */
 package sistemaserviciosocial;
 
-/**
- * Clase Proyecto
- *
- * @author Bruno Antonio López Luján
- * @version 1.0
- * @since 2019/05/30
- */
-import java.math.BigInteger;
+import java.sql.Date;
 import java.util.ArrayList;
 import sistemaserviciosocial.engine.SQL;
 import sistemaserviciosocial.engine.SQLRow;
 
+/**
+ * ProyectoDAO es la clase que lleva el manejo de los Proyectos registrados en la base
+ * de datos.
+ *
+ * @author Bruno Antonio López Luján
+ * @author Mauricio Cruz Portilla
+ * @version 1.0
+ * @since 2019/05/30
+ */
 public class ProyectoDAO implements IProyectoDAO {
 
+    /**
+     * Crea una instancia vacía.
+     */
     public ProyectoDAO() {
     }
 
     @Override
     public Proyecto getProyecto(int idProyecto) {
-        throw new UnsupportedOperationException("Not supported yet.");
+        try {
+            Proyecto proyecto = new Proyecto();
+            SQL.executeQuery("SELECT * FROM proyecto WHERE idproyecto = ?", new ArrayList<Object>() {
+                {
+                    add(idProyecto);
+                }
+            }, (result) -> {
+                SQLRow row = result.get(0);
+                proyecto.setId(idProyecto);
+                proyecto.setSolicitudBase(new Solicitud((int) row.getColumnData("idsolicitud")));
+                proyecto.setResponsableProyecto(
+                    new ResponsableProyecto((int) row.getColumnData("idresponsable"))
+                );
+                proyecto.setNombre(row.getColumnData("nombre").toString());
+                proyecto.setDescripcion(row.getColumnData("descripcion").toString());
+                proyecto.setHorarioAlumno(row.getColumnData("horarioAlumno").toString());
+                proyecto.setNumAlumnos((int) row.getColumnData("numAlumnos"));
+                proyecto.setActividades(row.getColumnData("actividades").toString());
+                proyecto.setFechaRegistro(
+                    ((Date) row.getColumnData("fechaRegistro")).toLocalDate()
+                );
+                return true;
+            }, () -> {
+                return false;
+            });
+            return proyecto;
+        } catch (Exception e) {
+            //TODO: handle exception
+            e.printStackTrace();
+            System.out.println("getProyecto Exception -> " + e.getMessage());
+            return null;
+        }
     }
 
     @Override

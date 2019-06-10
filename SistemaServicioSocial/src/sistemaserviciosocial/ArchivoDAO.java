@@ -16,9 +16,10 @@ import sistemaserviciosocial.engine.SQL;
 import sistemaserviciosocial.engine.SQLRow;
 
 /**
- * Clase DAO de archivo
+ * ArchivoDAO es la clase que maneja los Archivos registrados en la base de datos.
  *
  * @author María Saarayim González Hernández
+ * @author Mauricio Cruz Portilla
  * @version 1.0
  * @since 2019/05/30
  */

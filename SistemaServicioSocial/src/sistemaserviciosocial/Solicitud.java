@@ -78,6 +78,7 @@ public class Solicitud {
 	
 	/**
 	 * Inicializa los datos de la solicitud con base en un identificador de la base de datos.
+	 * 
 	 * @param id identificador de la solicitud
 	 */
 	public void init(int id) {

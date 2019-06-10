@@ -64,6 +64,7 @@ public class FechaEntregaReporte {
 
     /**
      * Regresa el id de la fecha de entrega de reporte
+     * 
      * @return id
      */
     public int getId() {
@@ -72,6 +73,7 @@ public class FechaEntregaReporte {
 
     /**
      * Establece un id a la fecha de entrega
+     * 
      * @param id id de la fecha de entrega
      */
     public void setId(int id) {
@@ -80,6 +82,7 @@ public class FechaEntregaReporte {
 
     /**
      * Regresa la fecha de inicio para entregar el reporte
+     * 
      * @return fecha minima
      */
     public LocalDate getFechaMinima() {
@@ -88,6 +91,7 @@ public class FechaEntregaReporte {
     
     /**
      * Establecce una fecha de inicio para entregar el reporte
+     * 
      * @param fechaMinima fecha minima para entregar reporte
      */
     public void setFechaMinima(LocalDate fechaMinima) {
@@ -96,6 +100,7 @@ public class FechaEntregaReporte {
 
     /**
      * Regresa la fecha límite para entregar el reporte
+     * 
      * @return regresa la fecha limite
      */
     public LocalDate getFechaLimite() {
@@ -104,6 +109,7 @@ public class FechaEntregaReporte {
 
     /**
      * Establece una fecha límite para entregar el reporte
+     * 
      * @param fechaLimite fecha limite para entregar el reporte
      */
     public void setFechaLimite(LocalDate fechaLimite) {
@@ -112,6 +118,7 @@ public class FechaEntregaReporte {
 
     /**
      * Regresa el mes del reporte
+     * 
      * @return mes del reporte
      */
     public String getMes() {
@@ -120,6 +127,7 @@ public class FechaEntregaReporte {
 
     /**
      * Establece un mes del reporte
+     * 
      * @param mes mes del reporte
      */
     public void setMes(String mes) {

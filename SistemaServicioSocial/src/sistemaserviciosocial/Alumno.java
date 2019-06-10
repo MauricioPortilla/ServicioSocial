@@ -99,13 +99,19 @@ public class Alumno {
 	 * Asigna una solicitud para dar inicio a su servicio social.
 	 * 
 	 * @param solicitud solicitud a asignar
-	 * @return <code>true</code> si se asignó correctamente. <code>false</code> si no se asignó.
+	 * @return <code>true</code> si se asignó correctamente; <code>false</code> si no se asignó.
 	 */
 	public boolean asignarSolicitud(Solicitud solicitud) {
 		ISolicitudAsignadaDAO solicitudAsignadaDAO = new SolicitudAsignadaDAO();
 		return solicitudAsignadaDAO.insertSolicitudAsignada(inscripcion.getHistorial(), solicitud);
 	}
 
+	/**
+	 * Asigna un proyecto al alumno.
+	 * 
+	 * @param proyecto proyecto a asignar
+	 * @return <code>true</code> si se asignó correctamente; <code>false</code> si no se asignó.
+	 */
 	public boolean asignarProyecto(Proyecto proyecto) {
 		IProyectoAsignadoDAO proyectoAsignadoDAO = new ProyectoAsignadoDAO();
 		return proyectoAsignadoDAO.insertProyectoAsignado(inscripcion.getHistorial(), proyecto);

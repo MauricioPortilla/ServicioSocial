@@ -9,7 +9,6 @@
  * 			López Lujan Bruno Antonio
  * Fecha de creación: Mayo, 2019
  */
-
 package sistemaserviciosocial;
 
 /**

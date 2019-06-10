@@ -14,7 +14,7 @@ package sistemaserviciosocial;
 import java.util.ArrayList;
 
 /**
- * IReporteDAO es la clase que contiene la interfaz de Reporte.
+ * IReporteDAO es la clase que maneja los Reportes en la base de datos.
  *
  * @author Maria Jose Hernandez Molinos
  * @author Mauricio Cruz Portilla

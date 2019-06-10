@@ -105,7 +105,8 @@ public class HistorialAlumnoSS {
      */
     public void initReportes() {
         if (id > 0) {
-            // TODO: REPORTES
+            IReporteDAO reporteDAO = new ReporteDAO();
+            this.reportes = reporteDAO.getReportes(this);
         }
     }
 
