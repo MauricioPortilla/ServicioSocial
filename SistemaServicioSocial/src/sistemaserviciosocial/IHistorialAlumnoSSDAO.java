@@ -31,8 +31,17 @@ public interface IHistorialAlumnoSSDAO {
 
     /**
      * Retorna una instancia HistorialAlumnoSS con base en una Inscripcion.
+     * 
      * @param inscripcion Inscripcion asociada al Historial
      * @return Historial del Alumno
      */
     public HistorialAlumnoSS getHistorial(Inscripcion inscripcion);
+
+    /**
+     * Actualiza los datos del historial especificado en la base de datos.
+     * 
+     * @param historial historial a actualizar
+     * @return <code>true</code> si se actualizó correctamente; <code>false</code> si no
+     */
+    public boolean updateHistorial(HistorialAlumnoSS historial);
 }

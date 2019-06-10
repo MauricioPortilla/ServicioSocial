@@ -104,6 +104,9 @@ public class FXMLSubirArchivoController {
             @Override
             public void handle(ActionEvent event) {
                 FileChooser fileChooser = new FileChooser();
+                FileChooser.ExtensionFilter extFilter = 
+                        new FileChooser.ExtensionFilter("PDF files (*.pdf)", "*.pdf");
+                fileChooser.getExtensionFilters().add(extFilter);
                 fileSelected = fileChooser.showOpenDialog(
                     examinarButton.getScene().getWindow()
                 );

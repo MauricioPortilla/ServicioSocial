@@ -94,7 +94,7 @@ public class ReporteDAO implements IReporteDAO {
                         ((Date) row.getColumnData("fechaEntrega")).toLocalDate(),
                         row.getColumnData("estado").toString(),
                         row.getColumnData("motivoInvalidez").toString(),
-                        new HistorialAlumnoSS((int) row.getColumnData("idhistorial")),
+                        historial,
                         new FechaEntregaReporte((int) row.getColumnData("identrega")),
                         new Archivo((int) row.getColumnData("idarchivo"))
                     ));

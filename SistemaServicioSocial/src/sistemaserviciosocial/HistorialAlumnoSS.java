@@ -61,7 +61,6 @@ public class HistorialAlumnoSS {
         this.numReportesEntregados = numReportesEntregados;
         this.inscripcion = inscripcion;
         initSolicitudes();
-        initReportes();
         initArchivos();
     }
 
@@ -84,7 +83,6 @@ public class HistorialAlumnoSS {
         this.numReportesEntregados = historialAux.numReportesEntregados;
         this.inscripcion = historialAux.inscripcion;
         initSolicitudes();
-        initReportes();
         initArchivos();
     }
 
@@ -117,6 +115,13 @@ public class HistorialAlumnoSS {
         if (id > 0) {
             this.archivos = new ArchivoDAO().getArchivos(this);
         }
+    }
+
+    public boolean modificar() {
+        if (id > 0) {
+            return new HistorialAlumnoSSDAO().updateHistorial(this);
+        }
+        return false;
     }
 
     /**

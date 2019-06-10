@@ -17,8 +17,11 @@ import java.nio.file.Paths;
 import java.util.HashMap;
 import java.util.Map;
 
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.scene.control.TextField;
 
 /**
  * Utilities es la clase que brinda herramientas para manejar datos.
@@ -28,6 +31,10 @@ import javafx.collections.ObservableList;
  * @since 2019/06/06
  */
 public class Utilities {
+
+    public static String REGEX_HOUR_FORMAT_PERIOD = "(\\d*:\\d* \\- \\d*:\\d*)";
+    public static String REGEX_DATE_FORMAT = "(\\d*\\/\\d*)";
+    public static String REGEX_NUMBERS_FORMAT = "\\d*";
 
     public static final String TIPO_ARCHIVO_REPORTE = "Reporte";
     public static final String TIPO_ARCHIVO_CARTA_ACEPTACION = "Carta de aceptación";
@@ -136,5 +143,43 @@ public class Utilities {
      */
     public static Path getArchivosPathAlumno(ServicioSocial servicioSocial, Alumno alumno) {
         return Paths.get(getArchivosPath(servicioSocial) + "/" + alumno.getMatricula());
+    }
+
+    /**
+     * Retorna un Listener para TextField que restringe su valor a solo números.
+     * 
+     * @param textField TextField que poseerá este listener
+     * @return listener de restricción
+     */
+    public static ChangeListener<String> onlyNumbersRegexListener(TextField textField) {
+        return new ChangeListener<String>() {
+            @Override
+            public void changed(
+                ObservableValue<? extends String> observable, String oldValue, String newValue
+            ) {
+                if (!newValue.matches(REGEX_NUMBERS_FORMAT)) {
+                    textField.setText(newValue.replaceAll("[^\\d]", ""));
+                }
+            }
+        };
+    }
+
+    /**
+     * Retorna un Listener para TextField que restringe su valor a solo un formato de fecha.
+     * 
+     * @param textField TextField que poseerá este listener
+     * @return listener de restricción
+     */
+    public static ChangeListener<String> onlyDateFormatRegexListener(TextField textField) {
+        return new ChangeListener<String>() {
+            @Override
+            public void changed(
+                ObservableValue<? extends String> observable, String oldValue, String newValue
+            ) {
+                if (!newValue.matches(REGEX_DATE_FORMAT)) {
+                    textField.setText(newValue.replaceAll("[^(\\d\\/)]", ""));
+                }
+            }
+        };
     }
 }

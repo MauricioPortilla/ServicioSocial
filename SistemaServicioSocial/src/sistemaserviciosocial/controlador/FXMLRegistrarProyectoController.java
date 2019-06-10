@@ -13,6 +13,7 @@ package sistemaserviciosocial.controlador;
 
 import java.net.URL;
 import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
 
@@ -30,6 +31,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
+import javafx.stage.Stage;
 import sistemaserviciosocial.Alumno;
 import sistemaserviciosocial.HistorialAlumnoSS;
 import sistemaserviciosocial.ISolicitudDAO;
@@ -116,6 +118,11 @@ public class FXMLRegistrarProyectoController {
         alumnosAsignadosTableView.getSelectionModel().setSelectionMode(SelectionMode.MULTIPLE);
 
         registrarButton.setOnAction(registrarButtonHandler());
+        cancelarButton.setOnAction(cancelarButtonHandler());
+
+        fechaInicioTextField.textProperty().addListener(
+            Utilities.onlyDateFormatRegexListener(fechaInicioTextField)
+        );
     }
 
     /**
@@ -199,11 +206,35 @@ public class FXMLRegistrarProyectoController {
                     for (Alumno alumnoSeleccionado : alumnosSeleccionados) {
                         alumnoSeleccionado.asignarProyecto(proyectoNuevo);
                         alumnosAsignadosTableView.getItems().remove(alumnoSeleccionado);
+                        alumnoSeleccionado.getInscripcion().getHistorial().setFechaInicioSS(
+                            LocalDate.parse(
+                                fechaInicioProyecto, DateTimeFormatter.ofPattern("d/M/uuuu")
+                            )
+                        );
+                        alumnoSeleccionado.getInscripcion().getHistorial().modificar();
                     }
-                    new Alert(AlertType.INFORMATION, "Proyecto registrado").show();
+                    new Alert(AlertType.INFORMATION, "Proyecto registrado").showAndWait();
+                    nombreTextField.clear();
+                    descripcionTextField.clear();
+                    horarioTextField.clear();
+                    fechaInicioTextField.clear();
                 } else {
                     new Alert(AlertType.ERROR, "Ocurrió un error con la base de datos").show();
                 }
+            }
+        };
+    }
+
+    /**
+     * Cierra la ventana actual.
+     * 
+     * @return el evento del botón
+     */
+    private EventHandler<ActionEvent> cancelarButtonHandler() {
+        return new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent event) {
+                ((Stage) cancelarButton.getScene().getWindow()).close();
             }
         };
     }

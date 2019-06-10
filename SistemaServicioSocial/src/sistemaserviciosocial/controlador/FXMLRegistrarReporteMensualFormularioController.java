@@ -56,6 +56,9 @@ public class FXMLRegistrarReporteMensualFormularioController {
         mesComboBox.setItems(Utilities.MESES);
         registrarButton.setOnAction(registrarButtonHandler());
         cancelarButton.setOnAction(cancelarButtonHandler());
+        horasReportadasTextField.textProperty().addListener(
+            Utilities.onlyNumbersRegexListener(horasReportadasTextField)
+        );
     }
 
     /**

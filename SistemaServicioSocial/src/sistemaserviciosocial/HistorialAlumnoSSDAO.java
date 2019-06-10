@@ -98,5 +98,20 @@ public class HistorialAlumnoSSDAO implements IHistorialAlumnoSSDAO {
             return null;
         }
     }
+
+    @Override
+    public boolean updateHistorial(HistorialAlumnoSS historial) {
+        if (SQL.executeUpdate(
+            "UPDATE historialAlumnoSS SET fechaInicioSS = ? WHERE idhistorial = ?", 
+            new ArrayList<Object>() {
+            {
+                add(historial.getFechaInicioSS());
+                add(historial.getId());
+            }
+        }) == 1) { // 1 fila afectada
+            return true;
+        }
+        return false;
+    }
     
 }
