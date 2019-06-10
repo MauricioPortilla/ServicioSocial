@@ -15,6 +15,7 @@ package sistemaserviciosocial;
  * Reporte es la clase que contiene la información de un reporte de Servicio Social.
  *
  * @author Maria Jose Hernandez Molinos
+ * @author María Saarayim González Hernández
  * @version 1.0
  * @since 2019/05/28
  */

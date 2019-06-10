@@ -15,6 +15,7 @@ package sistemaserviciosocial;
  * Clase Proyecto
  *
  * @author Bruno Antonio López Luján
+ * @author María Saarayim González Hernández
  * @version 1.0
  * @since 2019/05/30
  */
