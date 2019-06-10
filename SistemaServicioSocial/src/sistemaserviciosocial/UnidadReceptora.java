@@ -18,6 +18,7 @@ import java.util.ArrayList;
  * registrada en el sistema.
  * 
  * @author Mauricio Cruz Portilla
+ * @author Maria Jose Hernandez Molinos
  * @version 1.0
  * @since 2019/06/06
  */
