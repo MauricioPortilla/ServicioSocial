@@ -81,6 +81,8 @@ public class Proyecto {
     /**
      * Inicializa la instancia con su identificador y trae
      * de la base de datos sus datos.
+	 * 
+	 * @param id identificador del proyecto
      */
     public void init(int id) {
         this.id = id;
