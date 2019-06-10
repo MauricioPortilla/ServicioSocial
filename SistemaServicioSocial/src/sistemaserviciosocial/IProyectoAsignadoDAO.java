@@ -21,6 +21,14 @@ package sistemaserviciosocial;
  * @since 2019/06/09
  */
 public interface IProyectoAsignadoDAO {
+
+    /**
+     * Retorna el proyecto asignado al historial especificado.
+     * 
+     * @param historial historial del alumno
+     * @return el proyecto
+     */
+    public Proyecto getProyectoAsignado(HistorialAlumnoSS historial);
     
     /**
      * Guarda en la base de datos una asignación de proyecto.

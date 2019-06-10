@@ -15,6 +15,7 @@ package sistemaserviciosocial;
 import java.util.ArrayList;
 
 import sistemaserviciosocial.engine.SQL;
+import sistemaserviciosocial.engine.SQLRow;
 
 /**
  * ProyectoAsignadoDAO es la clase que maneja la información de los
@@ -25,6 +26,35 @@ import sistemaserviciosocial.engine.SQL;
  * @since 2019/06/09
  */
 public class ProyectoAsignadoDAO implements IProyectoAsignadoDAO {
+
+    @Override
+    public Proyecto getProyectoAsignado(HistorialAlumnoSS historial) {
+        try {
+            Proyecto proyecto = new Proyecto();
+            if (SQL.executeQuery(
+                "SELECT idproyecto FROM proyectoAsignado WHERE idhistorial = ?", 
+                new ArrayList<Object>() {
+                {
+                    add(historial.getId());
+                }
+            }, (result) -> {
+                SQLRow row = result.get(0);
+                proyecto.init((int) row.getColumnData("idproyecto"));
+                return true;
+            }, () -> {
+                return false;
+            })) {
+                return proyecto;
+            } else {
+                return null;
+            }
+        } catch (Exception e) {
+            //TODO: handle exception
+            e.printStackTrace();
+            System.out.println("getProyectoAsignado Exception -> " + e.getMessage());
+            return null;
+        }
+    }
 
     @Override
     public boolean insertProyectoAsignado(HistorialAlumnoSS historial, Proyecto proyecto) {

@@ -24,5 +24,10 @@ public enum UtilitiesFilters {
     /**
      * Filtra alumnos que no posean una solicitud asignada en su historial.
      */
-    FILTER_ALUMNOS_BY_NO_SOLICITUD_ASIGNADA
+    FILTER_ALUMNOS_BY_NO_SOLICITUD_ASIGNADA,
+
+    /**
+     * Filtra alumnos que no posean un proyecto asignado.
+     */
+    FILTER_ALUMNOS_BY_NO_PROYECTO_ASIGNADO
 }

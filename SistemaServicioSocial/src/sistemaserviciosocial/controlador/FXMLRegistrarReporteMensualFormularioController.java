@@ -106,7 +106,7 @@ public class FXMLRegistrarReporteMensualFormularioController {
                     historialAlumno.getArchivos().get(historialAlumno.getArchivos().size() - 1);
                 Reporte reporteNuevo = new Reporte(
                     0, numReportesEntregados, Integer.parseInt(horasReportadas), mes, 
-                    LocalDate.now(), "No validado", mes, historialAlumno, fechaEntregaReporte, 
+                    LocalDate.now(), "No validado", null, historialAlumno, fechaEntregaReporte, 
                     archivoSubido
                 );
                 if (reporteNuevo.guardar()) {

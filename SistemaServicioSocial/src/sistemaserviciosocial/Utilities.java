@@ -96,6 +96,13 @@ public class Utilities {
                     }
                 }
                 break;
+            case FILTER_ALUMNOS_BY_NO_PROYECTO_ASIGNADO:
+                for (Alumno alumno : list) {
+                    if (alumno.getInscripcion().getHistorial().getProyectoAsignado() == null) {
+                        newList.add(alumno);
+                    }
+                }
+                break;
         }
         return newList;
     }

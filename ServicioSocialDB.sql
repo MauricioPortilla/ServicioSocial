@@ -34,7 +34,7 @@ CREATE TABLE historialAlumnoSS (
     idhistorial int PRIMARY KEY NOT NULL AUTO_INCREMENT,
     idinscripcion int NOT NULL,
     FOREIGN KEY (idinscripcion) REFERENCES inscripcion(idinscripcion),
-    fechaInicioSS date NOT NULL,
+    fechaInicioSS date NULL,
     fechaFinSS date NULL,
     horasAcumuladas int NOT NULL DEFAULT 0,
     numReportesEntregados int NOT NULL DEFAULT 0
@@ -99,7 +99,7 @@ CREATE TABLE solicitud (
 
 CREATE TABLE responsableProyecto (
     idresponsable int PRIMARY KEY NOT NULL AUTO_INCREMENT,
-    nombre varchar(30) NOT NULL,
+    nombre varchar(100) NOT NULL,
     paterno varchar(30) NOT NULL,
     materno varchar(30) NULL,
     correo varchar(100) NOT NULL,

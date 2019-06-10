@@ -41,6 +41,7 @@ import sistemaserviciosocial.Solicitud;
 import sistemaserviciosocial.SolicitudAsignadaDAO;
 import sistemaserviciosocial.SolicitudDAO;
 import sistemaserviciosocial.Utilities;
+import sistemaserviciosocial.UtilitiesFilters;
 import sistemaserviciosocial.WindowManager;
 
 /**
@@ -147,7 +148,9 @@ public class FXMLRegistrarProyectoController {
                     for (HistorialAlumnoSS historial : listaHistorialesAlumnos) {
                         listaAlumnos.add(historial.getInscripcion().getAlumno());
                     }
-                    alumnosAsignadosTableView.setItems(listaAlumnos);
+                    alumnosAsignadosTableView.setItems(Utilities.filterAlumnos(
+                        listaAlumnos, UtilitiesFilters.FILTER_ALUMNOS_BY_NO_PROYECTO_ASIGNADO
+                    ));
                 }
             }
         };

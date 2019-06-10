@@ -30,6 +30,7 @@ public class HistorialAlumnoSS {
     private int numReportesEntregados;
     private Inscripcion inscripcion;
     private Solicitud solicitudAsignada = null;
+    private Proyecto proyectoAsignado = null;
     private ArrayList<Solicitud> solicitudesSeleccionadas = new ArrayList<>();
     private ArrayList<Reporte> reportes = new ArrayList<>();
     private ArrayList<Archivo> archivos = new ArrayList<>();
@@ -95,6 +96,7 @@ public class HistorialAlumnoSS {
             this.solicitudAsignada = new SolicitudAsignadaDAO().getSolicitudAsignada(this);
             this.solicitudesSeleccionadas = 
                 new SolicitudSeleccionadaDAO().getSolicitudesSeleccionadas(this);
+            this.proyectoAsignado = new ProyectoAsignadoDAO().getProyectoAsignado(this);
         }
     }
 
@@ -285,6 +287,24 @@ public class HistorialAlumnoSS {
      */
     public void setArchivos(ArrayList<Archivo> archivos) {
         this.archivos = archivos;
+    }
+
+    /**
+     * Retorna el proyecto asignado a este historial.
+     * 
+     * @return el proyecto asignado
+     */
+    public Proyecto getProyectoAsignado() {
+        return proyectoAsignado;
+    }
+
+    /**
+     * Establece un proyecto asignado.
+     * 
+     * @param proyecto proyecto asignado
+     */
+    public void setProyectoAsignado(Proyecto proyecto) {
+        this.proyectoAsignado = proyecto;
     }
     
 }

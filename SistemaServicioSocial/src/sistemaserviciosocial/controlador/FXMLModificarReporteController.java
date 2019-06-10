@@ -93,6 +93,7 @@ public class FXMLModificarReporteController {
                     AlertType.CONFIRMATION, "¿Está seguro de que sea modificar el reporte?"
                 );
                 if (confirmacionAlert.showAndWait().get() == ButtonType.OK) {
+                    reporte.setEstado("Validado");
                     if (reporte.modificar()) {
                         new Alert(
                             AlertType.INFORMATION, "El reporte ha sido modificado exitosamente"
