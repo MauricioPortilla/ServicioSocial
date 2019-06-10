@@ -36,7 +36,7 @@ public interface IProyectoDAO {
      *
      * @param proyecto proyecto
      * @param responsableProyecto responsable del proyecto
-     * @return <code>true<code> al guardar exitosamente o <code>false</code> si no fue así
+     * @return <code>true</code> al guardar exitosamente o <code>false</code> si no fue así
      */
     public boolean insertProyecto(Proyecto proyecto, ResponsableProyecto responsableProyecto);
 
@@ -44,7 +44,7 @@ public interface IProyectoDAO {
      * Modifica un proyecto
      *
      * @param proyecto proyecto
-     * @return <code>true<code> si se modificó exitosamente exitosamente o <code>false</code> si no
+     * @return <code>true</code> si se modificó exitosamente exitosamente o <code>false</code> si no
      * fue así
      */
     public boolean updateProyecto(Proyecto proyecto);

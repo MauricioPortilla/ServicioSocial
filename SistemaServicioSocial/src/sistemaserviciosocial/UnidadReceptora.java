@@ -163,7 +163,7 @@ public class UnidadReceptora {
     /**
      * Establece el número exterior de la unidad receptora.
      * 
-     * @param número exterior número exterior de la unidad receptora nuevo.
+     * @param numExt número exterior de la unidad receptora nuevo.
      */
     public void setNumExt(String numExt) {
         this.numExt = numExt;

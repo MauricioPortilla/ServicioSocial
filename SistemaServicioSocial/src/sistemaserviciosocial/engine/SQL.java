@@ -72,7 +72,7 @@ public class SQL {
      * existe algun resultado
      * @param failure funcion que se ejecuta si no existe algun resultado de la consulta
      * @return lista de resultados encontrados
-     * @throws java.lang.Exception
+     * @throws java.lang.Exception ocurre al fallar el query o la conexión con la base de datos
      */
     public static boolean executeQuery(
         String sql, ArrayList<Object> parameters, Predicate<ArrayList<SQLRow>> result, 

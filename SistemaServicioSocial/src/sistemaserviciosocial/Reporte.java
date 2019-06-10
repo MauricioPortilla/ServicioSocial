@@ -50,6 +50,7 @@ public class Reporte {
      * @param mes mes del reporte
      * @param fechaEntrega fecha de entrega del reporte
      * @param estado estado del reporte
+     * @param motivoInvalidez motivo de invalidez del reporte
      * @param historialAlumno historial asociado al reporte
      * @param fechaEntregaReporte fecha de entrega asociada al reporte
      * @param archivoReporte archivo asociado al reporte

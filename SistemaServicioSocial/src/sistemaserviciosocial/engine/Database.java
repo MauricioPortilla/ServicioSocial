@@ -32,7 +32,7 @@ public class Database {
     /**
      * Crea la conexion a la base de datos
      * 
-     * @throws SQLException
+     * @throws SQLException ocurre cuando la conexión no tuvo éxito
      */
     public Database() throws SQLException {
         try {

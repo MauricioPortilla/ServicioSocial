@@ -119,7 +119,6 @@ public class WindowManager {
      * Abre una ventana Registrar Reporte Mensual con datos especificados.
      * 
      * @param alumno alumno a utilizar
-     * @param fechaEntrega fecha de entrega del reporte
      * @return el controlador de la ventana
      */
     public static FXMLRegistrarReporteMensualController showRegistrarReporteWindow(Alumno alumno) {

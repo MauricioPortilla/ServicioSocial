@@ -39,6 +39,8 @@ public class Archivo {
     /**
      * Crea una instancia Archivo.
      *
+     * @param id identificador del archivo
+     * @param historial historial asociado con el archivo
      * @param titulo titulo del archivo
      * @param rutaUbicacion ruta de ubicación del archivo
      * @param estado estado del archivo
